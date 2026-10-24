@@ -1,2 +1,7 @@
-*.md
-docs/
+analyze-venv/
+bench/repos/
+__pycache__/
+*.pyc
+.env*
+*.pem
+*.key
