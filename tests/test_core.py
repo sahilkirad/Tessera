@@ -182,8 +182,8 @@ class EstimateTests(unittest.TestCase):
 
     def test_identifier_splitting(self):
         self.assertEqual(estimate_tokens("abcd"), 1)
-        self.assertEqual(estimate_tokens("applyDiscount"), 4)
-        self.assertEqual(estimate_tokens("apply_discount"), 5)
+        self.assertEqual(estimate_tokens("applyDiscount"), 3)
+        self.assertEqual(estimate_tokens("apply_discount"), 4)
         self.assertGreater(estimate_tokens("a" * 400), estimate_tokens("a" * 40))
 
     def test_padded_margin(self):
@@ -194,8 +194,8 @@ class EstimateTests(unittest.TestCase):
 class BudgetTests(unittest.TestCase):
     def test_precedence(self):
         self.assertEqual(resolve_budget(None, None), (2000, "default", []))
-        self.assertEqual(resolve_budget(None, "bug"), (3000, "task", []))
-        self.assertEqual(resolve_budget(1500, "bug"), (1500, "explicit", []))
+        self.assertEqual(resolve_budget(None, "bug"), (2500, "task", []))
+        self.assertEqual(resolve_budget(1200, "bug"), (1200, "explicit", []))
 
     def test_clamp_and_errors(self):
         budget, source, warns = resolve_budget(99999, None)
@@ -208,7 +208,7 @@ class BudgetTests(unittest.TestCase):
 
     def test_next_budget_ladder(self):
         chain = [next_budget(b) for b in (500, 1000, 2000, 3000, 4000, 5000, 7500, 8000, 9000)]
-        self.assertEqual(chain, [1000, 2000, 3000, 4000, 5000, 7500, 8000, None, None])
+        self.assertEqual(chain, [1500, 1500, 2500, 3500, 6000, 7500, 8000, None, None])
 
 
 class OutputTests(unittest.TestCase):

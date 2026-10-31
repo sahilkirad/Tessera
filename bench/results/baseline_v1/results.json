@@ -1,0 +1,2012 @@
+{
+ "commits": {
+  "django": "0e128d5",
+  "flask": "d086db8",
+  "requests": "611c616"
+ },
+ "summary": {
+  "dev": {
+   "budget_limited": 9,
+   "deterministic": 14,
+   "escalation_fixed": 1,
+   "low_confidence_share": 0.0,
+   "low_tokens_mean": null,
+   "n": 14,
+   "pack_ms": {
+    "max": 5729.3,
+    "mean": 2455.7428571428572,
+    "median": 205.1,
+    "min": 102.1,
+    "n": 14,
+    "p25": 152.8
+   },
+   "pack_tokens": {
+    "max": 3157.0,
+    "mean": 1937.357142857143,
+    "median": 2180.0,
+    "min": 787.0,
+    "n": 14,
+    "p25": 1351.0
+   },
+   "recall_any_micro": 0.6363636363636364,
+   "recall_full_micro": 0.8076923076923077,
+   "recall_full_per_task": {
+    "max": 1.0,
+    "mean": 0.8214285714285714,
+    "median": 1.0,
+    "min": 0.5,
+    "n": 14,
+    "p25": 0.5
+   },
+   "recall_misses": 5,
+   "reduction_vs_B1": {
+    "max": 0.9555102767502126,
+    "mean": 0.5760957681525928,
+    "median": 0.5766610298143899,
+    "min": 0.1767624020887728,
+    "n": 14,
+    "p25": 0.3595566885636715
+   },
+   "reduction_vs_B2": {
+    "max": 0.985231750797523,
+    "mean": 0.9668601016629094,
+    "median": 0.9750998228127365,
+    "min": 0.9308963554777279,
+    "n": 14,
+    "p25": 0.9499412552818911
+   },
+   "reduction_vs_B3": {
+    "max": -0.036669213139801426,
+    "mean": -1.3071579460708718,
+    "median": -1.1097358121330723,
+    "min": -4.354761904761904,
+    "n": 14,
+    "p25": -1.4269949475987684
+   }
+  },
+  "holdout": {
+   "budget_limited": 10,
+   "deterministic": 14,
+   "escalation_fixed": 0,
+   "low_confidence_share": 0.0,
+   "low_tokens_mean": null,
+   "n": 14,
+   "pack_ms": {
+    "max": 5718.4,
+    "mean": 2453.192857142857,
+    "median": 205.75,
+    "min": 135.3,
+    "n": 14,
+    "p25": 157.2
+   },
+   "pack_tokens": {
+    "max": 3164.0,
+    "mean": 1840.2857142857142,
+    "median": 1873.5,
+    "min": 842.0,
+    "n": 14,
+    "p25": 1398.0
+   },
+   "recall_any_micro": 0.5882352941176471,
+   "recall_full_micro": 0.7391304347826086,
+   "recall_full_per_task": {
+    "max": 1.0,
+    "mean": 0.7976190476190476,
+    "median": 1.0,
+    "min": 0.0,
+    "n": 14,
+    "p25": 0.5416666666666666
+   },
+   "recall_misses": 5,
+   "reduction_vs_B1": {
+    "max": 0.9065050807929369,
+    "mean": 0.7062885184964769,
+    "median": 0.7754793033282024,
+    "min": 0.23103597745990467,
+    "n": 14,
+    "p25": 0.71389129767684
+   },
+   "reduction_vs_B2": {
+    "max": 0.9922721109451967,
+    "mean": 0.9705150974417389,
+    "median": 0.9686338940455992,
+    "min": 0.9466594503578086,
+    "n": 14,
+    "p25": 0.9600743929776837
+   },
+   "reduction_vs_B3": {
+    "max": 0.16573764399851354,
+    "mean": -1.468868722981892,
+    "median": -1.1446090031522642,
+    "min": -8.429319371727749,
+    "n": 14,
+    "p25": -1.4410635964912282
+   }
+  }
+ },
+ "tasks": [
+  {
+   "B1": 4186,
+   "B2": 49391,
+   "B3": 1203,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 2000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "django-01",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5532.7,
+   "pack_tokens": 1349,
+   "query": "csrf token check origin referer",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.6777353081700908,
+   "reduction_vs_B2": 0.9726873317001073,
+   "reduction_vs_B3": -0.12136325852036567,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/core/checks/compatibility/django_4_0.py",
+     "check_csrf_trusted_origins"
+    ],
+    [
+     "FULL",
+     "django/core/exceptions.py",
+     "DisallowedHost"
+    ],
+    [
+     "FULL",
+     "django/middleware/csrf.py",
+     "CsrfViewMiddleware._check_referer"
+    ],
+    [
+     "FULL",
+     "django/middleware/csrf.py",
+     "CsrfViewMiddleware._check_token"
+    ],
+    [
+     "FULL",
+     "django/utils/http.py",
+     "is_same_domain"
+    ]
+   ],
+   "split": "dev",
+   "task": "lookup"
+  },
+  {
+   "B1": 50551,
+   "B2": 137722,
+   "B3": 420,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "django-02",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5729.3,
+   "pack_tokens": 2249,
+   "query": "queryset filter exclude negate",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.9555102767502126,
+   "reduction_vs_B2": 0.983670001887861,
+   "reduction_vs_B3": -4.354761904761904,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/contrib/admin/filters.py",
+     "ListFilter.queryset"
+    ],
+    [
+     "FULL",
+     "django/contrib/admin/filters.py",
+     "FieldListFilter.queryset"
+    ],
+    [
+     "FULL",
+     "django/contrib/admin/filters.py",
+     "EmptyFieldListFilter.queryset"
+    ],
+    [
+     "FULL",
+     "django/db/models/query.py",
+     "QuerySet._filter_or_exclude"
+    ],
+    [
+     "FULL",
+     "django/db/models/query.py",
+     "QuerySet._filter_or_exclude_inplace"
+    ],
+    [
+     "FULL",
+     "django/db/models/query_utils.py",
+     "Q"
+    ]
+   ],
+   "split": "dev",
+   "task": "bug"
+  },
+  {
+   "B1": 7778,
+   "B2": 136636,
+   "B3": 1626,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "django-03",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5400.4,
+   "pack_tokens": 1946,
+   "query": "url resolver reverse prefix",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.7498071483671895,
+   "reduction_vs_B2": 0.9857577797944904,
+   "reduction_vs_B3": -0.1968019680196802,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/urls/exceptions.py",
+     "NoReverseMatch"
+    ],
+    [
+     "FULL",
+     "django/urls/resolvers.py",
+     "URLResolver._populate"
+    ],
+    [
+     "FULL",
+     "django/urls/resolvers.py",
+     "URLResolver.reverse_dict"
+    ],
+    [
+     "FULL",
+     "django/urls/resolvers.py",
+     "URLResolver.reverse"
+    ],
+    [
+     "FULL",
+     "django/urls/resolvers.py",
+     "URLResolver._reverse_with_prefix"
+    ],
+    [
+     "FULL",
+     "django/utils/http.py",
+     "escape_leading_slashes"
+    ],
+    [
+     "FULL",
+     "django/utils/translation/__init__.py",
+     "get_language"
+    ]
+   ],
+   "split": "holdout",
+   "task": "explore"
+  },
+  {
+   "B1": 5355,
+   "B2": 102108,
+   "B3": 678,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "django-04",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5447.2,
+   "pack_tokens": 1353,
+   "query": "pbkdf2 password hasher iterations",
+   "recall_any": 0.5,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.7473389355742297,
+   "reduction_vs_B2": 0.9867493242449171,
+   "reduction_vs_B3": -0.9955752212389382,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/contrib/auth/hashers.py",
+     "PBKDF2PasswordHasher"
+    ],
+    [
+     "FULL",
+     "django/contrib/auth/hashers.py",
+     "PBKDF2PasswordHasher.encode"
+    ],
+    [
+     "FULL",
+     "django/contrib/auth/hashers.py",
+     "PBKDF2SHA1PasswordHasher"
+    ],
+    [
+     "FULL",
+     "django/utils/crypto.py",
+     "constant_time_compare"
+    ],
+    [
+     "FULL",
+     "django/utils/crypto.py",
+     "pbkdf2"
+    ],
+    [
+     "FULL",
+     "django/utils/encoding.py",
+     "force_str"
+    ],
+    [
+     "FULL",
+     "django/utils/translation/__init__.py",
+     "gettext_noop"
+    ]
+   ],
+   "split": "holdout",
+   "task": "lookup"
+  },
+  {
+   "B1": 3326,
+   "B2": 146886,
+   "B3": 666,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": true,
+   "escalation_recall_full": 1.0,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "django-05",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5517.4,
+   "pack_tokens": 2260,
+   "query": "form full clean fields errors",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.32050511124473846,
+   "reduction_vs_B2": 0.9846139182767588,
+   "reduction_vs_B3": -2.3933933933933935,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/core/exceptions.py",
+     "ValidationError"
+    ],
+    [
+     "FULL",
+     "django/db/models/base.py",
+     "Model.full_clean"
+    ],
+    [
+     "FULL",
+     "django/forms/forms.py",
+     "BaseForm.full_clean"
+    ],
+    [
+     "FULL",
+     "django/forms/formsets.py",
+     "BaseFormSet.full_clean"
+    ],
+    [
+     "FULL",
+     "django/forms/utils.py",
+     "ErrorDict"
+    ]
+   ],
+   "split": "dev",
+   "task": "bug"
+  },
+  {
+   "B1": 15807,
+   "B2": 156409,
+   "B3": 2218,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 5500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "django-06",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5585.0,
+   "pack_tokens": 3164,
+   "query": "migration autodetector altered fields",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.7998355159106725,
+   "reduction_vs_B2": 0.9797709850456175,
+   "reduction_vs_B3": -0.4265103697024346,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/db/migrations/autodetector.py",
+     "MigrationAutodetector.generate_altered_fields"
+    ],
+    [
+     "FULL",
+     "django/db/migrations/autodetector.py",
+     "MigrationAutodetector.create_altered_indexes"
+    ],
+    [
+     "FULL",
+     "django/db/migrations/autodetector.py",
+     "MigrationAutodetector.create_altered_constraints"
+    ],
+    [
+     "FULL",
+     "django/db/migrations/autodetector.py",
+     "MigrationAutodetector.generate_altered_constraints"
+    ],
+    [
+     "FULL",
+     "django/db/migrations/autodetector.py",
+     "MigrationAutodetector._generate_removed_altered_foo_together"
+    ],
+    [
+     "FULL",
+     "django/db/migrations/autodetector.py",
+     "MigrationAutodetector.generate_removed_altered_unique_together"
+    ],
+    [
+     "FULL",
+     "django/db/migrations/utils.py",
+     "resolve_relation"
+    ]
+   ],
+   "split": "holdout",
+   "task": "feature"
+  },
+  {
+   "B1": 2934,
+   "B2": 40412,
+   "B3": 1231,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "django-07",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5435.4,
+   "pack_tokens": 2112,
+   "query": "middleware chain load handler",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.28016359918200406,
+   "reduction_vs_B2": 0.9477382955557755,
+   "reduction_vs_B3": -0.7156783103168156,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/contrib/staticfiles/handlers.py",
+     "StaticFilesHandlerMixin.load_middleware"
+    ],
+    [
+     "FULL",
+     "django/core/exceptions.py",
+     "MiddlewareNotUsed"
+    ],
+    [
+     "FULL",
+     "django/core/exceptions.py",
+     "ImproperlyConfigured"
+    ],
+    [
+     "FULL",
+     "django/core/files/uploadhandler.py",
+     "load_handler"
+    ],
+    [
+     "FULL",
+     "django/core/handlers/base.py",
+     "BaseHandler.load_middleware"
+    ],
+    [
+     "FULL",
+     "django/core/handlers/base.py",
+     "BaseHandler.adapt_method_mode"
+    ],
+    [
+     "FULL",
+     "django/core/handlers/base.py",
+     "BaseHandler.process_exception_by_middleware"
+    ],
+    [
+     "FULL",
+     "django/core/handlers/exception.py",
+     "convert_exception_to_response"
+    ],
+    [
+     "FULL",
+     "django/utils/module_loading.py",
+     "import_string"
+    ]
+   ],
+   "split": "dev",
+   "task": "explore"
+  },
+  {
+   "B1": 11663,
+   "B2": 233052,
+   "B3": 191,
+   "any_hit": 0,
+   "any_total": 2,
+   "budget": 2000,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 2500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.0,
+   "full_hit": 0,
+   "full_total": 2,
+   "id": "django-08",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5718.4,
+   "pack_tokens": 1801,
+   "query": "test client login session",
+   "recall_any": 0.0,
+   "recall_full": 0.0,
+   "reduction_vs_B1": 0.8455800394409672,
+   "reduction_vs_B2": 0.9922721109451967,
+   "reduction_vs_B3": -8.429319371727749,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/test/utils.py",
+     "override_settings"
+    ],
+    [
+     "FULL",
+     "tests/auth_tests/test_views.py",
+     "LoginTest.test_session_key_flushed_on_login"
+    ],
+    [
+     "FULL",
+     "tests/auth_tests/test_views.py",
+     "LoginTest.test_session_key_flushed_on_login_after_password_change"
+    ],
+    [
+     "FULL",
+     "tests/auth_tests/test_views.py",
+     "LoginTest.test_login_session_without_hash_session_key"
+    ],
+    [
+     "FULL",
+     "tests/test_client/tests.py",
+     "ClientTest.test_view_with_login_when_sessions_app_is_not_installed"
+    ],
+    [
+     "FULL",
+     "tests/test_client_regress/tests.py",
+     "SessionEngineTests.test_login"
+    ],
+    [
+     "FULL",
+     "tests/test_client_regress/tests.py",
+     "SessionTests.test_login_with_user"
+    ],
+    [
+     "FULL",
+     "tests/test_client_regress/tests.py",
+     "SessionTests.test_login_without_signal"
+    ]
+   ],
+   "split": "holdout",
+   "task": "test"
+  },
+  {
+   "B1": 9622,
+   "B2": 127702,
+   "B3": 923,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "django-09",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5496.7,
+   "pack_tokens": 2248,
+   "query": "template variable resolve lookup filter",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.7663687383080441,
+   "reduction_vs_B2": 0.9823965168908866,
+   "reduction_vs_B3": -1.4355362946912242,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/template/base.py",
+     "FilterExpression.resolve"
+    ],
+    [
+     "FULL",
+     "django/template/base.py",
+     "Variable.resolve"
+    ],
+    [
+     "FULL",
+     "django/template/base.py",
+     "Variable._resolve_lookup"
+    ],
+    [
+     "FULL",
+     "django/template/context.py",
+     "BaseContext"
+    ],
+    [
+     "FULL",
+     "django/utils/inspect.py",
+     "signature"
+    ],
+    [
+     "FULL",
+     "django/utils/safestring.py",
+     "SafeData"
+    ],
+    [
+     "FULL",
+     "django/utils/safestring.py",
+     "mark_safe"
+    ]
+   ],
+   "split": "dev",
+   "task": "bug"
+  },
+  {
+   "B1": 1674,
+   "B2": 47364,
+   "B3": 988,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "django-10",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5359.0,
+   "pack_tokens": 1225,
+   "query": "memory file upload handler chunk",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.2682198327359617,
+   "reduction_vs_B2": 0.9741364749598851,
+   "reduction_vs_B3": -0.23987854251012153,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/core/files/uploadedfile.py",
+     "InMemoryUploadedFile.chunks"
+    ],
+    [
+     "OUTLINE",
+     "django/core/files/uploadhandler.py",
+     "FileUploadHandler"
+    ],
+    [
+     "FULL",
+     "django/core/files/uploadhandler.py",
+     "FileUploadHandler.receive_data_chunk"
+    ],
+    [
+     "FULL",
+     "django/core/files/uploadhandler.py",
+     "TemporaryFileUploadHandler.receive_data_chunk"
+    ],
+    [
+     "FULL",
+     "django/core/files/uploadhandler.py",
+     "MemoryFileUploadHandler"
+    ],
+    [
+     "FULL",
+     "django/core/files/uploadhandler.py",
+     "MemoryFileUploadHandler.receive_data_chunk"
+    ]
+   ],
+   "split": "holdout",
+   "task": "lookup"
+  },
+  {
+   "B1": 24012,
+   "B2": 149850,
+   "B3": 2691,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "django-11",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5507.2,
+   "pack_tokens": 2245,
+   "query": "admin search results construct_search",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.9065050807929369,
+   "reduction_vs_B2": 0.9850183516850184,
+   "reduction_vs_B3": 0.16573764399851354,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/contrib/admin/options.py",
+     "ModelAdmin.get_search_results"
+    ],
+    [
+     "FULL",
+     "django/contrib/admin/options.py",
+     "ModelAdmin.construct_change_message"
+    ],
+    [
+     "FULL",
+     "django/contrib/admin/utils.py",
+     "lookup_spawns_duplicates"
+    ],
+    [
+     "FULL",
+     "django/core/exceptions.py",
+     "FieldDoesNotExist"
+    ],
+    [
+     "FULL",
+     "django/core/exceptions.py",
+     "ValidationError"
+    ],
+    [
+     "FULL",
+     "django/utils/translation/__init__.py",
+     "gettext"
+    ]
+   ],
+   "split": "holdout",
+   "task": "bug"
+  },
+  {
+   "B1": 3830,
+   "B2": 133717,
+   "B3": 1313,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 3,
+   "full_total": 3,
+   "id": "django-12",
+   "index_files": 2937,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 5362.9,
+   "pack_tokens": 3153,
+   "query": "signal send receivers connect dispatch",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.1767624020887728,
+   "reduction_vs_B2": 0.9764203504416042,
+   "reduction_vs_B3": -1.4013709063214015,
+   "repo": "django",
+   "sections": [
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal.connect"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal.send"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal.asend"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal._log_robust_failure"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal.send_robust"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal.asend_robust"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal._clear_dead_receivers"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal._live_receivers"
+    ],
+    [
+     "FULL",
+     "django/dispatch/dispatcher.py",
+     "Signal._flag_dead_receivers"
+    ]
+   ],
+   "split": "dev",
+   "task": "feature"
+  },
+  {
+   "B1": 3380,
+   "B2": 37125,
+   "B3": 455,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 2000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "flask-01",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 202.6,
+   "pack_tokens": 936,
+   "query": "session cookie signing",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.7230769230769231,
+   "reduction_vs_B2": 0.9747878787878788,
+   "reduction_vs_B3": -1.057142857142857,
+   "repo": "flask",
+   "sections": [
+    [
+     "MENTION",
+     "src/flask/app.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/cli.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/ctx.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/globals.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/json/__init__.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/json/tag.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/flask/sessions.py",
+     "SecureCookieSessionInterface.get_signing_serializer"
+    ],
+    [
+     "OUTLINE",
+     "src/flask/typing.py",
+     ""
+    ],
+    [
+     "OUTLINE",
+     "src/flask/wrappers.py",
+     ""
+    ]
+   ],
+   "split": "dev",
+   "task": "lookup"
+  },
+  {
+   "B1": 19893,
+   "B2": 52060,
+   "B3": 1493,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "flask-02",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 207.6,
+   "pack_tokens": 2262,
+   "query": "url_for external build endpoint",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.8862916603830493,
+   "reduction_vs_B2": 0.9565501344602382,
+   "reduction_vs_B3": -0.5150703281982585,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/app.py",
+     "Flask.url_for"
+    ],
+    [
+     "FULL",
+     "src/flask/helpers.py",
+     "url_for"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/app.py",
+     "App.inject_url_defaults"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/app.py",
+     "App.handle_url_build_error"
+    ]
+   ],
+   "split": "dev",
+   "task": "bug"
+  },
+  {
+   "B1": 4238,
+   "B2": 30172,
+   "B3": 712,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "flask-03",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 167.8,
+   "pack_tokens": 1621,
+   "query": "context push pop",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.6175082586125531,
+   "reduction_vs_B2": 0.9462746917672014,
+   "reduction_vs_B3": -1.2766853932584268,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/ctx.py",
+     "_AppCtxGlobals.pop"
+    ],
+    [
+     "FULL",
+     "src/flask/ctx.py",
+     "AppContext._get_session"
+    ],
+    [
+     "FULL",
+     "src/flask/ctx.py",
+     "AppContext.match_request"
+    ],
+    [
+     "FULL",
+     "src/flask/ctx.py",
+     "AppContext.push"
+    ],
+    [
+     "FULL",
+     "src/flask/ctx.py",
+     "AppContext.pop"
+    ],
+    [
+     "MENTION",
+     "src/flask/globals.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/flask/helpers.py",
+     "_CollectErrors"
+    ],
+    [
+     "OUTLINE",
+     "src/flask/typing.py",
+     ""
+    ]
+   ],
+   "split": "dev",
+   "task": "explore"
+  },
+  {
+   "B1": 5836,
+   "B2": 24029,
+   "B3": 372,
+   "any_hit": 1,
+   "any_total": 1,
+   "budget": 1500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "flask-04",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 157.2,
+   "pack_tokens": 914,
+   "query": "send_from_directory",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.843385880740233,
+   "reduction_vs_B2": 0.9619626284905739,
+   "reduction_vs_B3": -1.456989247311828,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/helpers.py",
+     "send_from_directory"
+    ],
+    [
+     "FULL",
+     "src/flask/wrappers.py",
+     "Response"
+    ]
+   ],
+   "split": "holdout",
+   "task": "lookup"
+  },
+  {
+   "B1": 2307,
+   "B2": 33258,
+   "B3": 741,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 2000,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 2500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "flask-05",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 192.9,
+   "pack_tokens": 1774,
+   "query": "test client session transaction cookie",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.23103597745990467,
+   "reduction_vs_B2": 0.9466594503578086,
+   "reduction_vs_B3": -1.3940620782726048,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/sessions.py",
+     "SessionMixin"
+    ],
+    [
+     "FULL",
+     "src/flask/testing.py",
+     "FlaskClient.session_transaction"
+    ],
+    [
+     "FULL",
+     "tests/test_basic.py",
+     "test_session_vary_cookie"
+    ],
+    [
+     "FULL",
+     "tests/test_testing.py",
+     "test_session_transactions"
+    ],
+    [
+     "FULL",
+     "tests/test_testing.py",
+     "test_session_transaction_ipv6"
+    ],
+    [
+     "FULL",
+     "tests/test_testing.py",
+     "test_session_transactions_no_null_sessions"
+    ],
+    [
+     "FULL",
+     "tests/test_testing.py",
+     "test_session_transactions_keep_context"
+    ],
+    [
+     "FULL",
+     "tests/test_testing.py",
+     "test_session_transaction_needs_cookies"
+    ]
+   ],
+   "split": "holdout",
+   "task": "test"
+  },
+  {
+   "B1": 6101,
+   "B2": 44325,
+   "B3": 1394,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "flask-06",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 196.9,
+   "pack_tokens": 2832,
+   "query": "register blueprint url prefix options",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.5358138010162268,
+   "reduction_vs_B2": 0.9361082910321489,
+   "reduction_vs_B3": -1.0315638450502154,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/sansio/app.py",
+     "App.register_blueprint"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "BlueprintSetupState.add_url_rule"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "Blueprint.record"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "Blueprint.register_blueprint"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "Blueprint.register"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "Blueprint.add_url_rule"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "Blueprint.app_url_value_preprocessor"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/blueprints.py",
+     "Blueprint.app_url_defaults"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/scaffold.py",
+     "setupmethod"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/scaffold.py",
+     "_endpoint_from_view_func"
+    ]
+   ],
+   "split": "dev",
+   "task": "feature"
+  },
+  {
+   "B1": 22876,
+   "B2": 45671,
+   "B3": 959,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "flask-07",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 218.6,
+   "pack_tokens": 2234,
+   "query": "handle user exception error handler",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.90234306696975,
+   "reduction_vs_B2": 0.9510849335464517,
+   "reduction_vs_B3": -1.329509906152242,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/app.py",
+     "Flask.handle_http_exception"
+    ],
+    [
+     "FULL",
+     "src/flask/app.py",
+     "Flask.handle_user_exception"
+    ],
+    [
+     "FULL",
+     "src/flask/app.py",
+     "Flask.handle_exception"
+    ],
+    [
+     "FULL",
+     "src/flask/app.py",
+     "Flask.log_exception"
+    ],
+    [
+     "FULL",
+     "src/flask/app.py",
+     "Flask.ensure_sync"
+    ],
+    [
+     "OUTLINE",
+     "src/flask/ctx.py",
+     "AppContext"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/app.py",
+     "App._find_error_handler"
+    ],
+    [
+     "FULL",
+     "src/flask/sansio/scaffold.py",
+     "Scaffold.register_error_handler"
+    ]
+   ],
+   "split": "holdout",
+   "task": "bug"
+  },
+  {
+   "B1": 2820,
+   "B2": 41580,
+   "B3": 624,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "flask-08",
+   "index_files": 83,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 171.7,
+   "pack_tokens": 1533,
+   "query": "config prefixed environment variables",
+   "recall_any": 0.5,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.4563829787234043,
+   "reduction_vs_B2": 0.9631313131313132,
+   "reduction_vs_B3": -1.4567307692307692,
+   "repo": "flask",
+   "sections": [
+    [
+     "FULL",
+     "src/flask/config.py",
+     "Config.from_prefixed_env"
+    ],
+    [
+     "OUTLINE",
+     "src/flask/ctx.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/helpers.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/json/provider.py",
+     ""
+    ],
+    [
+     "OUTLINE",
+     "src/flask/logging.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/flask/sansio/app.py",
+     ""
+    ],
+    [
+     "OUTLINE",
+     "src/flask/typing.py",
+     ""
+    ]
+   ],
+   "split": "holdout",
+   "task": "explore"
+  },
+  {
+   "B1": 2814,
+   "B2": 55189,
+   "B3": 1309,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 2000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "requests-01",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 147.8,
+   "pack_tokens": 1357,
+   "query": "digest auth challenge header",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.5177683013503909,
+   "reduction_vs_B2": 0.9754117668375945,
+   "reduction_vs_B3": -0.036669213139801426,
+   "repo": "requests",
+   "sections": [
+    [
+     "FULL",
+     "src/requests/auth.py",
+     "HTTPDigestAuth.__init__"
+    ],
+    [
+     "FULL",
+     "src/requests/auth.py",
+     "HTTPDigestAuth.build_digest_header"
+    ],
+    [
+     "FULL",
+     "src/requests/cookies.py",
+     "extract_cookies_to_jar"
+    ]
+   ],
+   "split": "dev",
+   "task": "lookup"
+  },
+  {
+   "B1": 7549,
+   "B2": 49582,
+   "B3": 1534,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "requests-02",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 157.2,
+   "pack_tokens": 2244,
+   "query": "redirect resolve history strip auth",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.7027420850443767,
+   "reduction_vs_B2": 0.9547416401113307,
+   "reduction_vs_B3": -0.46284224250325945,
+   "repo": "requests",
+   "sections": [
+    [
+     "FULL",
+     "src/requests/_types.py",
+     "is_prepared"
+    ],
+    [
+     "FULL",
+     "src/requests/cookies.py",
+     "extract_cookies_to_jar"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "TooManyRedirects"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "ChunkedEncodingError"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "ContentDecodingError"
+    ],
+    [
+     "FULL",
+     "src/requests/sessions.py",
+     "SessionRedirectMixin.should_strip_auth"
+    ],
+    [
+     "FULL",
+     "src/requests/sessions.py",
+     "SessionRedirectMixin.resolve_redirects"
+    ],
+    [
+     "FULL",
+     "src/requests/sessions.py",
+     "SessionRedirectMixin.rebuild_auth"
+    ]
+   ],
+   "split": "holdout",
+   "task": "bug"
+  },
+  {
+   "B1": 8904,
+   "B2": 53290,
+   "B3": 220,
+   "any_hit": 1,
+   "any_total": 1,
+   "budget": 1500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "requests-03",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 137.3,
+   "pack_tokens": 787,
+   "query": "raise_for_status http error",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.9116127583108715,
+   "reduction_vs_B2": 0.985231750797523,
+   "reduction_vs_B3": -2.577272727272727,
+   "repo": "requests",
+   "sections": [
+    [
+     "OUTLINE",
+     "src/requests/_internal_utils.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/_types.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/adapters.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/auth.py",
+     ""
+    ],
+    [
+     "OUTLINE",
+     "src/requests/compat.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/cookies.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "HTTPError"
+    ],
+    [
+     "OUTLINE",
+     "src/requests/hooks.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/requests/models.py",
+     "Response.raise_for_status"
+    ],
+    [
+     "OUTLINE",
+     "src/requests/status_codes.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/structures.py",
+     ""
+    ]
+   ],
+   "split": "dev",
+   "task": "lookup"
+  },
+  {
+   "B1": 15970,
+   "B2": 56364,
+   "B3": 991,
+   "any_hit": 2,
+   "any_total": 4,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.6666666666666666,
+   "full_hit": 2,
+   "full_total": 3,
+   "id": "requests-04",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 155.1,
+   "pack_tokens": 2273,
+   "query": "proxy bypass environment no_proxy",
+   "recall_any": 0.5,
+   "recall_full": 0.6666666666666666,
+   "reduction_vs_B1": 0.8576706324358172,
+   "reduction_vs_B2": 0.9596728408203818,
+   "reduction_vs_B3": -1.2936427850655905,
+   "repo": "requests",
+   "sections": [
+    [
+     "FULL",
+     "src/requests/sessions.py",
+     "Session.merge_environment_settings"
+    ],
+    [
+     "FULL",
+     "src/requests/utils.py",
+     "proxy_bypass_registry"
+    ],
+    [
+     "FULL",
+     "src/requests/utils.py",
+     "proxy_bypass"
+    ],
+    [
+     "FULL",
+     "src/requests/utils.py",
+     "should_bypass_proxies"
+    ],
+    [
+     "FULL",
+     "tests/test_utils.py",
+     "TestGetEnvironProxies.test_bypass_no_proxy_keyword"
+    ],
+    [
+     "FULL",
+     "tests/test_utils.py",
+     "TestGetEnvironProxies.test_not_bypass_no_proxy_keyword"
+    ],
+    [
+     "FULL",
+     "tests/test_utils.py",
+     "test_should_bypass_proxies_no_proxy"
+    ],
+    [
+     "FULL",
+     "tests/test_utils.py",
+     "test_should_bypass_proxies_no_proxy_domain_boundary"
+    ]
+   ],
+   "split": "holdout",
+   "task": "explore"
+  },
+  {
+   "B1": 1025,
+   "B2": 47773,
+   "B3": 655,
+   "any_hit": 1,
+   "any_total": 1,
+   "budget": 2000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "requests-05",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 102.1,
+   "pack_tokens": 800,
+   "query": "case insensitive dict lookup",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.2195121951219512,
+   "reduction_vs_B2": 0.9832541393674251,
+   "reduction_vs_B3": -0.22137404580152675,
+   "repo": "requests",
+   "sections": [
+    [
+     "OUTLINE",
+     "src/requests/compat.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/requests/structures.py",
+     "CaseInsensitiveDict"
+    ]
+   ],
+   "split": "dev",
+   "task": "test"
+  },
+  {
+   "B1": 8904,
+   "B2": 57230,
+   "B3": 1122,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "requests-06",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 139.5,
+   "pack_tokens": 2216,
+   "query": "prepare body multipart files encode",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.7511230907457322,
+   "reduction_vs_B2": 0.9612790494495894,
+   "reduction_vs_B3": -0.9750445632798574,
+   "repo": "requests",
+   "sections": [
+    [
+     "FULL",
+     "src/requests/_types.py",
+     "has_read"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "InvalidJSONError"
+    ],
+    [
+     "FULL",
+     "src/requests/models.py",
+     "RequestEncodingMixin._encode_files"
+    ],
+    [
+     "FULL",
+     "src/requests/models.py",
+     "PreparedRequest.prepare_body"
+    ],
+    [
+     "FULL",
+     "src/requests/utils.py",
+     "super_len"
+    ],
+    [
+     "FULL",
+     "src/requests/utils.py",
+     "guess_filename"
+    ],
+    [
+     "FULL",
+     "src/requests/utils.py",
+     "to_key_val_list"
+    ]
+   ],
+   "split": "holdout",
+   "task": "bug"
+  },
+  {
+   "B1": 6033,
+   "B2": 45685,
+   "B3": 1460,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "requests-07",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 143.9,
+   "pack_tokens": 3157,
+   "query": "adapter send timeout connection retry",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.4767114205204708,
+   "reduction_vs_B2": 0.9308963554777279,
+   "reduction_vs_B3": -1.1623287671232876,
+   "repo": "requests",
+   "sections": [
+    [
+     "FULL",
+     "src/requests/_types.py",
+     "is_prepared"
+    ],
+    [
+     "FULL",
+     "src/requests/adapters.py",
+     "BaseAdapter.send"
+    ],
+    [
+     "FULL",
+     "src/requests/adapters.py",
+     "HTTPAdapter.build_connection_pool_key_attributes"
+    ],
+    [
+     "FULL",
+     "src/requests/adapters.py",
+     "HTTPAdapter.send"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "ConnectionError"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "ProxyError"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "SSLError"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "ConnectTimeout"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "ReadTimeout"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "InvalidURL"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "InvalidHeader"
+    ],
+    [
+     "FULL",
+     "src/requests/exceptions.py",
+     "RetryError"
+    ],
+    [
+     "OUTLINE",
+     "src/requests/models.py",
+     "PreparedRequest"
+    ]
+   ],
+   "split": "dev",
+   "task": "feature"
+  },
+  {
+   "B1": 4841,
+   "B2": 56038,
+   "B3": 274,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 1,
+   "full_total": 1,
+   "id": "requests-08",
+   "index_files": 37,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 135.3,
+   "pack_tokens": 842,
+   "query": "merge cookies jar",
+   "recall_any": 0.5,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.8260689940095022,
+   "reduction_vs_B2": 0.9849744816017703,
+   "reduction_vs_B3": -2.072992700729927,
+   "repo": "requests",
+   "sections": [
+    [
+     "OUTLINE",
+     "src/requests/_internal_utils.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/_types.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/auth.py",
+     ""
+    ],
+    [
+     "OUTLINE",
+     "src/requests/compat.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/requests/cookies.py",
+     "extract_cookies_to_jar"
+    ],
+    [
+     "FULL",
+     "src/requests/cookies.py",
+     "merge_cookies"
+    ],
+    [
+     "MENTION",
+     "src/requests/exceptions.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/models.py",
+     ""
+    ],
+    [
+     "MENTION",
+     "src/requests/structures.py",
+     ""
+    ]
+   ],
+   "split": "holdout",
+   "task": "lookup"
+  }
+ ]
+}

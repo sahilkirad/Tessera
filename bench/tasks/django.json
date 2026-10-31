@@ -1,0 +1,82 @@
+[
+  {"id": "django-01", "repo": "django", "split": "dev", "task": "lookup",
+   "desc": "How does the CSRF middleware check the token, origin and referer?",
+   "query": "csrf token check origin referer",
+   "must_include": [
+     {"symbol": "django/middleware/csrf.py::CsrfViewMiddleware._check_token", "need": "full"},
+     {"symbol": "django/middleware/csrf.py::CsrfViewMiddleware.process_view", "need": "full"},
+     {"symbol": "django/middleware/csrf.py::CsrfViewMiddleware._origin_verified", "need": "outline"}]},
+  {"id": "django-02", "repo": "django", "split": "dev", "task": "bug",
+   "desc": "exclude() returns the wrong rows; trace how filter/exclude negation is applied.",
+   "query": "queryset filter exclude negate",
+   "must_include": [
+     {"symbol": "django/db/models/query.py::QuerySet._filter_or_exclude", "need": "full"},
+     {"symbol": "django/db/models/query.py::QuerySet._filter_or_exclude_inplace", "need": "full"},
+     {"symbol": "django/db/models/sql/query.py::Query.add_q", "need": "outline"}]},
+  {"id": "django-03", "repo": "django", "split": "holdout", "task": "explore",
+   "desc": "Understand how URL reversing resolves a name and prefix to a path.",
+   "query": "url resolver reverse prefix",
+   "must_include": [
+     {"symbol": "django/urls/resolvers.py::URLResolver._reverse_with_prefix", "need": "full"},
+     {"symbol": "django/urls/base.py::reverse", "need": "full"},
+     {"symbol": "django/urls/resolvers.py::URLResolver.resolve", "need": "outline"}]},
+  {"id": "django-04", "repo": "django", "split": "holdout", "task": "lookup",
+   "desc": "Where is the PBKDF2 password hasher and how many iterations does it use?",
+   "query": "pbkdf2 password hasher iterations",
+   "must_include": [
+     {"symbol": "django/contrib/auth/hashers.py::PBKDF2PasswordHasher", "need": "full"},
+     {"symbol": "django/contrib/auth/hashers.py::make_password", "need": "outline"}]},
+  {"id": "django-05", "repo": "django", "split": "dev", "task": "bug",
+   "desc": "A form accepts invalid data; trace how fields are cleaned and errors collected.",
+   "query": "form full clean fields errors",
+   "must_include": [
+     {"symbol": "django/forms/forms.py::BaseForm.full_clean", "need": "full"},
+     {"symbol": "django/forms/forms.py::BaseForm._clean_fields", "need": "full"},
+     {"symbol": "django/forms/forms.py::BaseForm.add_error", "need": "outline"}]},
+  {"id": "django-06", "repo": "django", "split": "holdout", "task": "feature",
+   "desc": "Add handling for a new kind of model field change in migrations.",
+   "query": "migration autodetector altered fields",
+   "must_include": [
+     {"symbol": "django/db/migrations/autodetector.py::MigrationAutodetector.generate_altered_fields", "need": "full"},
+     {"symbol": "django/db/migrations/autodetector.py::MigrationAutodetector._detect_changes", "need": "full"},
+     {"symbol": "django/db/migrations/autodetector.py::MigrationAutodetector.changes", "need": "outline"}]},
+  {"id": "django-07", "repo": "django", "split": "dev", "task": "explore",
+   "desc": "How is the middleware chain built and a request turned into a response?",
+   "query": "middleware chain load handler",
+   "must_include": [
+     {"symbol": "django/core/handlers/base.py::BaseHandler.load_middleware", "need": "full"},
+     {"symbol": "django/core/handlers/base.py::BaseHandler._get_response", "need": "full"},
+     {"symbol": "django/core/handlers/base.py::BaseHandler.get_response", "need": "outline"}]},
+  {"id": "django-08", "repo": "django", "split": "holdout", "task": "test",
+   "desc": "Write a test that logs in with the test client and checks the session.",
+   "query": "test client login session",
+   "must_include": [
+     {"symbol": "django/test/client.py::ClientMixin.login", "need": "full"},
+     {"symbol": "django/test/client.py::ClientMixin._login", "need": "full"}]},
+  {"id": "django-09", "repo": "django", "split": "dev", "task": "bug",
+   "desc": "A template variable resolves to the wrong value; trace lookup and filter application.",
+   "query": "template variable resolve lookup filter",
+   "must_include": [
+     {"symbol": "django/template/base.py::Variable._resolve_lookup", "need": "full"},
+     {"symbol": "django/template/base.py::FilterExpression.resolve", "need": "full"}]},
+  {"id": "django-10", "repo": "django", "split": "holdout", "task": "lookup",
+   "desc": "Where does the in-memory upload handler receive file chunks?",
+   "query": "memory file upload handler chunk",
+   "must_include": [
+     {"symbol": "django/core/files/uploadhandler.py::MemoryFileUploadHandler", "need": "full"},
+     {"symbol": "django/core/files/uploadhandler.py::FileUploadHandler", "need": "outline"}]},
+  {"id": "django-11", "repo": "django", "split": "holdout", "task": "bug",
+   "desc": "Admin search returns wrong results; trace how the search query is built.",
+   "query": "admin search results construct_search",
+   "must_include": [
+     {"symbol": "django/contrib/admin/options.py::ModelAdmin.get_search_results", "need": "full"},
+     {"symbol": "django/contrib/admin/options.py::ModelAdmin.changelist_view", "need": "outline"},
+     {"symbol": "django/contrib/admin/options.py::ModelAdmin.get_changelist_instance", "need": "outline"}]},
+  {"id": "django-12", "repo": "django", "split": "dev", "task": "feature",
+   "desc": "Add behaviour to signal dispatch; see how receivers are connected and called.",
+   "query": "signal send receivers connect dispatch",
+   "must_include": [
+     {"symbol": "django/dispatch/dispatcher.py::Signal.send", "need": "full"},
+     {"symbol": "django/dispatch/dispatcher.py::Signal.connect", "need": "full"},
+     {"symbol": "django/dispatch/dispatcher.py::Signal._live_receivers", "need": "full"}]}
+]

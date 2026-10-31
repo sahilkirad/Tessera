@@ -1,6 +1,7 @@
 """File walking, ignore rules, safe paths, token estimate and output helpers."""
 from __future__ import annotations
 
+import argparse
 import fnmatch
 import math
 import os
@@ -8,19 +9,24 @@ import re
 import sys
 import time
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Callable, List, Optional, Sequence, Tuple
 
 MAX_FILE_BYTES = 1_000_000
 BINARY_SNIFF_BYTES = 8192
 SAFETY_PERCENT = 110
+UNITS_PER_TOKEN = 2
+ALPHA_CHARS = 6
+DIGIT_CHARS = 3
 MAX_OMITTED_ITEMS = 15
 MAX_WARNINGS = 5
 
-TASK_BUDGETS = {"lookup": 1000, "test": 2000, "bug": 3000, "explore": 4000, "feature": 5000}
+TASK_BUDGETS = {"lookup": 1500, "test": 2000, "bug": 2500, "explore": 3000, "feature": 3500}
 DEFAULT_BUDGET = 2000
 HARD_CAP = 8000
 MIN_BUDGET = 200
 BUDGET_TOO_SMALL = "BUDGET TOO SMALL (minimum 200)"
+NO_PYTHON_FILES = "NO PYTHON FILES: code-context-pruner v1 supports Python only"
+DEFAULT_MAX_SECONDS = 20.0
 
 DEFAULT_DIR_NAMES = frozenset({
     ".git", ".hg", ".svn", ".venv", "node_modules", "__pycache__", ".mypy_cache",
@@ -321,25 +327,39 @@ _CAMEL_RE = re.compile(r"[A-Z]+(?![a-z])|[A-Z]?[a-z]+")
 
 def estimate_tokens(text: str) -> int:
     """Rough token ESTIMATE (each model tokenizes differently); non-zero for non-empty text."""
+    return max(1, units_to_tokens(raw_units(text))) if text else 0
+
+
+def raw_units(text: str) -> int:
+    """Estimate in half-tokens; additive over parts joined by one newline (1 unit) each."""
     total = 0
     for match in _TOKEN_RE.finditer(text):
         kind, token = match.lastgroup, match.group()
         if kind == "a":
-            total += sum(math.ceil(len(w) / 4) for w in _CAMEL_RE.findall(token))
+            total += UNITS_PER_TOKEN * sum(math.ceil(len(w) / ALPHA_CHARS) for w in _CAMEL_RE.findall(token))
         elif kind == "d":
-            total += math.ceil(len(token) / 3)
+            total += UNITS_PER_TOKEN * math.ceil(len(token) / DIGIT_CHARS)
         elif kind == "w":
             total += token.count("\n")
         elif kind == "u":
-            total += 2
+            total += 2 * UNITS_PER_TOKEN
         else:
             total += 1
-    return max(1, total) if text else 0
+    return total
+
+
+def units_to_tokens(units: int) -> int:
+    return -(-units // UNITS_PER_TOKEN)
 
 
 def padded(tokens: int) -> int:
     """Apply the budget safety margin to an estimated token total."""
     return (tokens * SAFETY_PERCENT + 99) // 100
+
+
+def printed_cost(text: str) -> int:
+    """Padded token cost of `text` as printed (print adds a trailing newline)."""
+    return padded(estimate_tokens(text + "\n"))
 
 
 class Deadline:
@@ -387,11 +407,51 @@ def _capped(items: List[str], limit: int) -> List[str]:
     return items[:limit] + ["+%d more" % (len(items) - limit)]
 
 
-def footer(omitted: List[str], warnings: List[str]) -> str:
+def footer(omitted: List[str], warnings: List[str],
+           max_omitted: int = MAX_OMITTED_ITEMS, max_warnings: int = MAX_WARNINGS) -> str:
     """OMITTED (max 15 items) and WARNINGS (max 5) lines; an empty line is left out."""
     lines = []
     if omitted:
-        lines.append("OMITTED: " + "; ".join(_capped(omitted, MAX_OMITTED_ITEMS)))
+        lines.append("OMITTED: " + "; ".join(_capped(omitted, max_omitted)))
     if warnings:
-        lines.append("WARNINGS: " + "; ".join(_capped(warnings, MAX_WARNINGS)))
+        lines.append("WARNINGS: " + "; ".join(_capped(warnings, max_warnings)))
     return "\n".join(lines)
+
+
+# ------------------------------------------------------------------------ CLI
+
+class CliParser(argparse.ArgumentParser):
+    """argparse that raises UsageError instead of printing usage and exiting."""
+
+    def error(self, message: str):  # type: ignore[override]
+        raise UsageError(message)
+
+
+def make_parser(prog: str, description: str) -> CliParser:
+    """Parser with the flags shared by every tool: --root and --max-seconds."""
+    parser = CliParser(prog=prog, description=description)
+    parser.add_argument("--root", default=".", help="repository root (default .)")
+    parser.add_argument("--max-seconds", type=float, default=DEFAULT_MAX_SECONDS,
+                        help="stop indexing after N seconds (default 20)")
+    return parser
+
+
+def require_root(root: str) -> str:
+    """Absolute root path, or PathError if it is not a directory."""
+    path = os.path.abspath(root)
+    if not os.path.isdir(path):
+        raise PathError("root is not a directory: %s" % root)
+    return path
+
+
+def run_guarded(fn: Callable[[Optional[Sequence[str]]], int], argv: Optional[Sequence[str]]) -> int:
+    """Run a CLI body with UTF-8 stdout; map UsageError to exit 2 and PathError to exit 3."""
+    setup_stdout()
+    try:
+        return fn(argv)
+    except UsageError as exc:
+        print("ERROR: %s" % exc)
+        return 2
+    except PathError as exc:
+        print("ERROR: %s" % exc)
+        return 3

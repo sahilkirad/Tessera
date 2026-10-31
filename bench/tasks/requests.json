@@ -1,0 +1,52 @@
+[
+  {"id": "requests-01", "repo": "requests", "split": "dev", "task": "lookup",
+   "desc": "How is the digest auth header built after a 401 challenge?",
+   "query": "digest auth challenge header",
+   "must_include": [
+     {"symbol": "src/requests/auth.py::HTTPDigestAuth.build_digest_header", "need": "full"},
+     {"symbol": "src/requests/auth.py::HTTPDigestAuth.handle_401", "need": "full"}]},
+  {"id": "requests-02", "repo": "requests", "split": "holdout", "task": "bug",
+   "desc": "Authorization header leaks to another host on redirect.",
+   "query": "redirect resolve history strip auth",
+   "must_include": [
+     {"symbol": "src/requests/sessions.py::SessionRedirectMixin.resolve_redirects", "need": "full"},
+     {"symbol": "src/requests/sessions.py::SessionRedirectMixin.should_strip_auth", "need": "full"},
+     {"symbol": "src/requests/sessions.py::SessionRedirectMixin.rebuild_auth", "need": "outline"}]},
+  {"id": "requests-03", "repo": "requests", "split": "dev", "task": "lookup",
+   "desc": "Where does a bad status code become an exception?",
+   "query": "raise_for_status http error",
+   "must_include": [
+     {"symbol": "src/requests/models.py::Response.raise_for_status", "need": "full"}]},
+  {"id": "requests-04", "repo": "requests", "split": "holdout", "task": "explore",
+   "desc": "How are proxies chosen and bypassed from the environment?",
+   "query": "proxy bypass environment no_proxy",
+   "must_include": [
+     {"symbol": "src/requests/utils.py::should_bypass_proxies", "need": "full"},
+     {"symbol": "src/requests/utils.py::get_environ_proxies", "need": "full"},
+     {"symbol": "src/requests/sessions.py::Session.merge_environment_settings", "need": "full"},
+     {"symbol": "src/requests/utils.py::select_proxy", "need": "outline"}]},
+  {"id": "requests-05", "repo": "requests", "split": "dev", "task": "test",
+   "desc": "Write a test for case-insensitive header lookup.",
+   "query": "case insensitive dict lookup",
+   "must_include": [
+     {"symbol": "src/requests/structures.py::CaseInsensitiveDict", "need": "full"}]},
+  {"id": "requests-06", "repo": "requests", "split": "holdout", "task": "bug",
+   "desc": "Multipart upload sends the wrong body; trace body preparation and file encoding.",
+   "query": "prepare body multipart files encode",
+   "must_include": [
+     {"symbol": "src/requests/models.py::RequestEncodingMixin._encode_files", "need": "full"},
+     {"symbol": "src/requests/models.py::PreparedRequest.prepare_body", "need": "full"}]},
+  {"id": "requests-07", "repo": "requests", "split": "dev", "task": "feature",
+   "desc": "Add a connection-level option to the HTTP adapter; see how sending and pooling work.",
+   "query": "adapter send timeout connection retry",
+   "must_include": [
+     {"symbol": "src/requests/adapters.py::HTTPAdapter.send", "need": "full"},
+     {"symbol": "src/requests/adapters.py::HTTPAdapter.init_poolmanager", "need": "outline"},
+     {"symbol": "src/requests/adapters.py::HTTPAdapter.build_response", "need": "outline"}]},
+  {"id": "requests-08", "repo": "requests", "split": "holdout", "task": "lookup",
+   "desc": "Where are cookie jars merged?",
+   "query": "merge cookies jar",
+   "must_include": [
+     {"symbol": "src/requests/cookies.py::merge_cookies", "need": "full"},
+     {"symbol": "src/requests/cookies.py::RequestsCookieJar.update", "need": "outline"}]}
+]

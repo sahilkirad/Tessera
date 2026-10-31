@@ -1,0 +1,55 @@
+[
+  {"id": "tinydb-01", "repo": "tinydb", "split": "dev2", "task": "lookup",
+   "desc": "Where is the JSON file read and written?",
+   "queries": {"naive": "json storage read write file",
+               "agent": "JSONStorage read write json handle serialized"},
+   "must_include": [
+     {"symbol": "tinydb/storages.py::JSONStorage.read", "need": "full"},
+     {"symbol": "tinydb/storages.py::JSONStorage.write", "need": "full"}]},
+  {"id": "tinydb-02", "repo": "tinydb", "split": "holdout2", "task": "bug",
+   "desc": "upsert inserts a new document instead of updating the matching one.",
+   "queries": {"naive": "upsert update document insert condition",
+               "agent": "Table upsert update insert doc_id cond Document"},
+   "must_include": [
+     {"symbol": "tinydb/table.py::Table.upsert", "need": "full"},
+     {"symbol": "tinydb/table.py::Table.update", "need": "full"},
+     {"symbol": "tinydb/table.py::Table.insert", "need": "outline"}]},
+  {"id": "tinydb-03", "repo": "tinydb", "split": "dev2", "task": "explore",
+   "desc": "Understand how the query cache works and when it is used.",
+   "queries": {"naive": "query cache search results",
+               "agent": "Table search _query_cache LRUCache is_cacheable clear_cache"},
+   "must_include": [
+     {"symbol": "tinydb/table.py::Table.search", "need": "full"},
+     {"symbol": "tinydb/table.py::Table.clear_cache", "need": "full"},
+     {"symbol": "tinydb/utils.py::LRUCache", "need": "outline"}]},
+  {"id": "tinydb-04", "repo": "tinydb", "split": "holdout2", "task": "feature",
+   "desc": "Add a new storage backend.",
+   "queries": {"naive": "storage backend read write close",
+               "agent": "Storage abstract read write close MemoryStorage JSONStorage"},
+   "must_include": [
+     {"symbol": "tinydb/storages.py::Storage", "need": "full"},
+     {"symbol": "tinydb/storages.py::MemoryStorage", "need": "full"}]},
+  {"id": "tinydb-05", "repo": "tinydb", "split": "holdout2", "task": "lookup",
+   "desc": "Where do query operators build the test function that resolves the field path?",
+   "queries": {"naive": "query path test function generate",
+               "agent": "Query _generate_test path runner QueryInstance __getattr__"},
+   "must_include": [
+     {"symbol": "tinydb/queries.py::Query._generate_test", "need": "full"},
+     {"symbol": "tinydb/queries.py::Query.__getattr__", "need": "full"}]},
+  {"id": "tinydb-06", "repo": "tinydb", "split": "dev2", "task": "test",
+   "desc": "Write a test for the caching middleware flush behaviour.",
+   "queries": {"naive": "caching middleware flush write cache",
+               "agent": "CachingMiddleware flush WRITE_CACHE_SIZE write close test_caching_flush"},
+   "must_include": [
+     {"symbol": "tinydb/middlewares.py::CachingMiddleware.flush", "need": "full"},
+     {"symbol": "tinydb/middlewares.py::CachingMiddleware.write", "need": "full"},
+     {"symbol": "tests/test_middlewares.py::test_caching_flush", "need": "outline"}]},
+  {"id": "tinydb-07", "repo": "tinydb", "split": "holdout2", "task": "bug",
+   "desc": "Document ids are reused or collide after inserting a Document with an explicit id.",
+   "queries": {"naive": "document id next insert collide",
+               "agent": "Table _get_next_id insert insert_multiple Document doc_id _next_id"},
+   "must_include": [
+     {"symbol": "tinydb/table.py::Table._get_next_id", "need": "full"},
+     {"symbol": "tinydb/table.py::Table.insert", "need": "full"},
+     {"symbol": "tinydb/table.py::Table.insert_multiple", "need": "outline"}]}
+]

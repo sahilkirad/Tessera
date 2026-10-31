@@ -1,0 +1,63 @@
+[
+  {"id": "jinja-01", "repo": "jinja", "split": "dev2", "task": "lookup",
+   "desc": "How are templates found on disk and how is path traversal blocked?",
+   "queries": {"naive": "template path loader search directory",
+               "agent": "FileSystemLoader get_source split_template_path searchpath TemplateNotFound"},
+   "must_include": [
+     {"symbol": "src/jinja2/loaders.py::FileSystemLoader.get_source", "need": "full"},
+     {"symbol": "src/jinja2/loaders.py::split_template_path", "need": "full"}]},
+  {"id": "jinja-02", "repo": "jinja", "split": "holdout2", "task": "explore",
+   "desc": "Understand how loaded templates are cached and reloaded when the file changes.",
+   "queries": {"naive": "template cache auto reload",
+               "agent": "Environment _load_template cache auto_reload is_up_to_date uptodate BaseLoader load"},
+   "must_include": [
+     {"symbol": "src/jinja2/environment.py::Environment._load_template", "need": "full"},
+     {"symbol": "src/jinja2/loaders.py::BaseLoader.load", "need": "full"},
+     {"symbol": "src/jinja2/environment.py::Template.is_up_to_date", "need": "outline"}]},
+  {"id": "jinja-03", "repo": "jinja", "split": "dev2", "task": "bug",
+   "desc": "The bytecode cache keeps serving stale compiled templates after the source changed.",
+   "queries": {"naive": "bytecode cache bucket checksum",
+               "agent": "BytecodeCache get_bucket set_bucket Bucket load_bytecode checksum get_source_checksum"},
+   "must_include": [
+     {"symbol": "src/jinja2/bccache.py::BytecodeCache.get_bucket", "need": "full"},
+     {"symbol": "src/jinja2/bccache.py::Bucket.load_bytecode", "need": "full"},
+     {"symbol": "src/jinja2/bccache.py::BytecodeCache.set_bucket", "need": "outline"}]},
+  {"id": "jinja-04", "repo": "jinja", "split": "holdout2", "task": "feature",
+   "desc": "Add support for calling a filter by name with the right context arguments.",
+   "queries": {"naive": "filter call name arguments environment",
+               "agent": "Environment call_filter _filter_test_common filters pass_context pass_environment"},
+   "must_include": [
+     {"symbol": "src/jinja2/environment.py::Environment.call_filter", "need": "full"},
+     {"symbol": "src/jinja2/environment.py::Environment._filter_test_common", "need": "full"}]},
+  {"id": "jinja-05", "repo": "jinja", "split": "holdout2", "task": "bug",
+   "desc": "The sandbox lets a template read a private attribute it should not.",
+   "queries": {"naive": "sandbox unsafe attribute access",
+               "agent": "SandboxedEnvironment getattr is_safe_attribute is_internal_attribute unsafe_undefined"},
+   "must_include": [
+     {"symbol": "src/jinja2/sandbox.py::SandboxedEnvironment.getattr", "need": "full"},
+     {"symbol": "src/jinja2/sandbox.py::SandboxedEnvironment.is_safe_attribute", "need": "full"},
+     {"symbol": "src/jinja2/sandbox.py::is_internal_attribute", "need": "full"}]},
+  {"id": "jinja-06", "repo": "jinja", "split": "dev2", "task": "explore",
+   "desc": "Understand how template source is turned into tokens.",
+   "queries": {"naive": "lexer tokenize template source tokens",
+               "agent": "Lexer tokeniter tokenize wrap TokenStream get_lexer"},
+   "must_include": [
+     {"symbol": "src/jinja2/lexer.py::Lexer.tokenize", "need": "full"},
+     {"symbol": "src/jinja2/lexer.py::Lexer.wrap", "need": "full"},
+     {"symbol": "src/jinja2/lexer.py::Lexer.tokeniter", "need": "outline"}]},
+  {"id": "jinja-07", "repo": "jinja", "split": "holdout2", "task": "lookup",
+   "desc": "Where is the error raised when a template uses a missing variable?",
+   "queries": {"naive": "undefined variable missing error",
+               "agent": "Undefined StrictUndefined _fail_with_undefined_error _undefined_message"},
+   "must_include": [
+     {"symbol": "src/jinja2/runtime.py::Undefined._fail_with_undefined_error", "need": "full"},
+     {"symbol": "src/jinja2/runtime.py::Undefined._undefined_message", "need": "full"}]},
+  {"id": "jinja-08", "repo": "jinja", "split": "dev2", "task": "test",
+   "desc": "Write a test for loading templates through a prefix loader and a dict loader.",
+   "queries": {"naive": "test dict loader prefix loader template",
+               "agent": "DictLoader get_source PrefixLoader get_loader TestLoaders test_prefix_loader"},
+   "must_include": [
+     {"symbol": "src/jinja2/loaders.py::DictLoader.get_source", "need": "full"},
+     {"symbol": "src/jinja2/loaders.py::PrefixLoader.get_loader", "need": "full"},
+     {"symbol": "tests/test_loader.py::TestLoaders.test_prefix_loader", "need": "outline"}]}
+]

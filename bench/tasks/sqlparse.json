@@ -1,0 +1,56 @@
+[
+  {"id": "sqlparse-01", "repo": "sqlparse", "split": "dev2", "task": "lookup",
+   "desc": "Where does SQL text get split into tokens?",
+   "queries": {"naive": "lexer tokens sql text",
+               "agent": "Lexer get_tokens tokenize keywords SQL_REGEX is_keyword"},
+   "must_include": [
+     {"symbol": "sqlparse/lexer.py::Lexer.get_tokens", "need": "full"},
+     {"symbol": "sqlparse/lexer.py::tokenize", "need": "full"}]},
+  {"id": "sqlparse-02", "repo": "sqlparse", "split": "holdout2", "task": "explore",
+   "desc": "Understand how parse() builds a grouped statement tree from SQL.",
+   "queries": {"naive": "parse statement grouping stack",
+               "agent": "FilterStack run enable_grouping grouping group parse StatementSplitter"},
+   "must_include": [
+     {"symbol": "sqlparse/engine/filter_stack.py::FilterStack.run", "need": "full"},
+     {"symbol": "sqlparse/engine/grouping.py::group", "need": "full"},
+     {"symbol": "sqlparse/__init__.py::parse", "need": "full"}]},
+  {"id": "sqlparse-03", "repo": "sqlparse", "split": "dev2", "task": "bug",
+   "desc": "The alias of an identifier is not detected.",
+   "queries": {"naive": "identifier alias name get",
+               "agent": "Identifier get_alias get_real_name NameAliasMixin group_aliased TokenList"},
+   "must_include": [
+     {"symbol": "sqlparse/sql.py::NameAliasMixin.get_alias", "need": "full"},
+     {"symbol": "sqlparse/sql.py::NameAliasMixin.get_real_name", "need": "full"},
+     {"symbol": "sqlparse/engine/grouping.py::group_aliased", "need": "outline"}]},
+  {"id": "sqlparse-04", "repo": "sqlparse", "split": "holdout2", "task": "feature",
+   "desc": "Add a formatting option that changes keyword case.",
+   "queries": {"naive": "format option keyword case filter",
+               "agent": "validate_options build_filter_stack KeywordCaseFilter keyword_case format"},
+   "must_include": [
+     {"symbol": "sqlparse/formatter.py::build_filter_stack", "need": "full"},
+     {"symbol": "sqlparse/formatter.py::validate_options", "need": "full"},
+     {"symbol": "sqlparse/filters/tokens.py::KeywordCaseFilter", "need": "outline"}]},
+  {"id": "sqlparse-05", "repo": "sqlparse", "split": "dev2", "task": "test",
+   "desc": "Write a test for splitting a script into statements.",
+   "queries": {"naive": "split statements semicolon begin",
+               "agent": "StatementSplitter _change_splitlevel process split test_split_semicolon"},
+   "must_include": [
+     {"symbol": "sqlparse/engine/statement_splitter.py::StatementSplitter._change_splitlevel", "need": "full"},
+     {"symbol": "sqlparse/engine/statement_splitter.py::StatementSplitter.process", "need": "full"},
+     {"symbol": "tests/test_split.py::test_split_semicolon", "need": "outline"}]},
+  {"id": "sqlparse-06", "repo": "sqlparse", "split": "holdout2", "task": "bug",
+   "desc": "Reindent puts commas and lines in the wrong place in an identifier list.",
+   "queries": {"naive": "reindent identifier list indentation comma",
+               "agent": "ReindentFilter _process_identifierlist _split_kwds nl _get_offset"},
+   "must_include": [
+     {"symbol": "sqlparse/filters/reindent.py::ReindentFilter._process_identifierlist", "need": "full"},
+     {"symbol": "sqlparse/filters/reindent.py::ReindentFilter._split_kwds", "need": "full"},
+     {"symbol": "sqlparse/filters/reindent.py::ReindentFilter._get_offset", "need": "outline"}]},
+  {"id": "sqlparse-07", "repo": "sqlparse", "split": "dev2", "task": "lookup",
+   "desc": "Where is the command line entry point that formats files?",
+   "queries": {"naive": "command line format file option",
+               "agent": "cli main _process_file create_parser args"},
+   "must_include": [
+     {"symbol": "sqlparse/cli.py::main", "need": "full"},
+     {"symbol": "sqlparse/cli.py::_process_file", "need": "full"}]}
+]

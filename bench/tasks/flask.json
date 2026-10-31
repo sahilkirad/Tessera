@@ -1,0 +1,51 @@
+[
+  {"id": "flask-01", "repo": "flask", "split": "dev", "task": "lookup",
+   "desc": "How is the session cookie signed and saved?",
+   "query": "session cookie signing",
+   "must_include": [
+     {"symbol": "src/flask/sessions.py::SecureCookieSessionInterface.get_signing_serializer", "need": "full"},
+     {"symbol": "src/flask/sessions.py::SecureCookieSessionInterface.save_session", "need": "full"}]},
+  {"id": "flask-02", "repo": "flask", "split": "dev", "task": "bug",
+   "desc": "url_for builds the wrong external URL; find where endpoints are built into URLs.",
+   "query": "url_for external build endpoint",
+   "must_include": [
+     {"symbol": "src/flask/app.py::Flask.url_for", "need": "full"},
+     {"symbol": "src/flask/helpers.py::url_for", "need": "full"}]},
+  {"id": "flask-03", "repo": "flask", "split": "dev", "task": "explore",
+   "desc": "Understand how the request/app context is pushed and popped.",
+   "query": "context push pop",
+   "must_include": [
+     {"symbol": "src/flask/ctx.py::AppContext.push", "need": "full"},
+     {"symbol": "src/flask/ctx.py::AppContext.pop", "need": "full"}]},
+  {"id": "flask-04", "repo": "flask", "split": "holdout", "task": "lookup",
+   "desc": "Where is send_from_directory implemented?",
+   "query": "send_from_directory",
+   "must_include": [
+     {"symbol": "src/flask/helpers.py::send_from_directory", "need": "full"}]},
+  {"id": "flask-05", "repo": "flask", "split": "holdout", "task": "test",
+   "desc": "Write a test that inspects the session through the test client.",
+   "query": "test client session transaction cookie",
+   "must_include": [
+     {"symbol": "src/flask/testing.py::FlaskClient.session_transaction", "need": "full"},
+     {"symbol": "src/flask/testing.py::FlaskClient.open", "need": "full"}]},
+  {"id": "flask-06", "repo": "flask", "split": "dev", "task": "feature",
+   "desc": "Add an option to blueprint registration; see how blueprints are registered with a URL prefix.",
+   "query": "register blueprint url prefix options",
+   "must_include": [
+     {"symbol": "src/flask/sansio/blueprints.py::Blueprint.register", "need": "full"},
+     {"symbol": "src/flask/sansio/blueprints.py::Blueprint.register_blueprint", "need": "full"},
+     {"symbol": "src/flask/sansio/blueprints.py::Blueprint._merge_blueprint_funcs", "need": "outline"}]},
+  {"id": "flask-07", "repo": "flask", "split": "holdout", "task": "bug",
+   "desc": "A registered error handler is not used for an exception raised in a view.",
+   "query": "handle user exception error handler",
+   "must_include": [
+     {"symbol": "src/flask/app.py::Flask.handle_user_exception", "need": "full"},
+     {"symbol": "src/flask/sansio/app.py::App._find_error_handler", "need": "full"},
+     {"symbol": "src/flask/app.py::Flask.handle_exception", "need": "outline"}]},
+  {"id": "flask-08", "repo": "flask", "split": "holdout", "task": "explore",
+   "desc": "How does the app load configuration from prefixed environment variables?",
+   "query": "config prefixed environment variables",
+   "must_include": [
+     {"symbol": "src/flask/config.py::Config.from_prefixed_env", "need": "full"},
+     {"symbol": "src/flask/config.py::Config.from_envvar", "need": "outline"}]}
+]
