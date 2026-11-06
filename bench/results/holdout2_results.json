@@ -1,0 +1,2104 @@
+{
+ "commits": {
+  "click": "2247b35",
+  "jinja": "5ef7011",
+  "sqlparse": "60cdc64",
+  "tinydb": "edff96a"
+ },
+ "summary": {
+  "holdout2/agent": {
+   "budget_limited": 9,
+   "deterministic": 15,
+   "escalation_fixed": 1,
+   "low_confidence_share": 0.0,
+   "low_tokens_mean": null,
+   "n": 15,
+   "pack_ms": {
+    "max": 2707.9,
+    "mean": 728.6866666666666,
+    "median": 320.9,
+    "min": 73.6,
+    "n": 15,
+    "p25": 123.4
+   },
+   "pack_tokens": {
+    "max": 3167.0,
+    "mean": 1742.8,
+    "median": 1540.0,
+    "min": 864.0,
+    "n": 15,
+    "p25": 1336.0
+   },
+   "recall_any_micro": 0.775,
+   "recall_full_micro": 0.7941176470588235,
+   "recall_full_per_task": {
+    "max": 1.0,
+    "mean": 0.8111111111111111,
+    "median": 1.0,
+    "min": 0.3333333333333333,
+    "n": 15,
+    "p25": 0.5833333333333333
+   },
+   "recall_misses": 6,
+   "reduction_vs_B1": {
+    "max": 0.9661251791686575,
+    "mean": 0.6287730142869437,
+    "median": 0.6944807742610515,
+    "min": 0.08293384467881115,
+    "n": 15,
+    "p25": 0.45375650231921333
+   },
+   "reduction_vs_B2": {
+    "max": 0.9857286634460547,
+    "mean": 0.9284301462209158,
+    "median": 0.9398355365879046,
+    "min": 0.7474167623421355,
+    "n": 15,
+    "p25": 0.9225994527741617
+   },
+   "reduction_vs_B3": {
+    "max": -0.020878329733621248,
+    "mean": -2.759224106649699,
+    "median": -2.731629392971246,
+    "min": -10.855855855855856,
+    "n": 15,
+    "p25": -3.41334568141938
+   }
+  },
+  "holdout2/naive": {
+   "budget_limited": 9,
+   "deterministic": 15,
+   "escalation_fixed": 1,
+   "low_confidence_share": 0.0,
+   "low_tokens_mean": null,
+   "n": 15,
+   "pack_ms": {
+    "max": 2510.4,
+    "mean": 957.0466666666667,
+    "median": 360.2,
+    "min": 65.4,
+    "n": 15,
+    "p25": 164.65
+   },
+   "pack_tokens": {
+    "max": 3160.0,
+    "mean": 1808.4,
+    "median": 1958.0,
+    "min": 708.0,
+    "n": 15,
+    "p25": 1175.0
+   },
+   "recall_any_micro": 0.6,
+   "recall_full_micro": 0.6176470588235294,
+   "recall_full_per_task": {
+    "max": 1.0,
+    "mean": 0.6,
+    "median": 0.5,
+    "min": 0.0,
+    "n": 15,
+    "p25": 0.5
+   },
+   "recall_misses": 11,
+   "reduction_vs_B1": {
+    "max": 0.9460582895365504,
+    "mean": 0.6234199295787889,
+    "median": 0.701176844783715,
+    "min": 0.05992329817833175,
+    "n": 15,
+    "p25": 0.41405056507277627
+   },
+   "reduction_vs_B2": {
+    "max": 0.9869594047005084,
+    "mean": 0.9477447278225202,
+    "median": 0.9505418171714365,
+    "min": 0.8913791723365084,
+    "n": 15,
+    "p25": 0.926403876478339
+   },
+   "reduction_vs_B3": {
+    "max": 0.16752843846949328,
+    "mean": -2.830886100815304,
+    "median": -2.1748878923766815,
+    "min": -10.927927927927929,
+    "n": 15,
+    "p25": -3.3721274588081585
+   }
+  }
+ },
+ "tasks": [
+  {
+   "B1": 41860,
+   "B2": 99498,
+   "B3": 1389,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "click-02",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2008.3,
+   "pack_tokens": 2258,
+   "query": "option prompt default value ask user",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.9460582895365504,
+   "reduction_vs_B2": 0.9773060765040503,
+   "reduction_vs_B3": -0.6256299496040316,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option.prompt_for_value"
+    ],
+    [
+     "FULL",
+     "src/click/exceptions.py",
+     "Abort"
+    ],
+    [
+     "FULL",
+     "src/click/termui.py",
+     "prompt"
+    ],
+    [
+     "FULL",
+     "src/click/termui.py",
+     "prompt"
+    ],
+    [
+     "FULL",
+     "src/click/termui.py",
+     "confirm"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "bug"
+  },
+  {
+   "B1": 41860,
+   "B2": 99360,
+   "B3": 1389,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "click-02",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 1228.8,
+   "pack_tokens": 1418,
+   "query": "Option prompt_for_value consume_value prompt confirm FLAG_NEEDS_VALUE show_default",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.9661251791686575,
+   "reduction_vs_B2": 0.9857286634460547,
+   "reduction_vs_B3": -0.020878329733621248,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option.flag_activation_value"
+    ],
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option.prompt_for_value"
+    ],
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option.consume_value"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "bug"
+  },
+  {
+   "B1": 10751,
+   "B2": 99844,
+   "B3": 460,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 5500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.6666666666666666,
+   "full_hit": 2,
+   "full_total": 3,
+   "id": "click-04",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2430.4,
+   "pack_tokens": 2028,
+   "query": "parameter type convert validate fail",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.6666666666666666,
+   "reduction_vs_B1": 0.81136638452237,
+   "reduction_vs_B2": 0.9796883137694804,
+   "reduction_vs_B3": -3.408695652173913,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/core.py",
+     "Parameter.type_cast_value"
+    ],
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option._validate"
+    ],
+    [
+     "FULL",
+     "src/click/exceptions.py",
+     "BadParameter"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "ParamType.convert"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "ParamType.fail"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "FuncParamType.convert"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "UnprocessedParamType.convert"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "StringParamType.convert"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "UUIDParameterType.convert"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "feature"
+  },
+  {
+   "B1": 10751,
+   "B2": 102803,
+   "B3": 460,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 5500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.3333333333333333,
+   "full_hit": 1,
+   "full_total": 3,
+   "id": "click-04",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2707.9,
+   "pack_tokens": 2014,
+   "query": "ParamType convert fail Choice convert get_metavar shell_complete",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.3333333333333333,
+   "reduction_vs_B1": 0.812668588968468,
+   "reduction_vs_B2": 0.980409132029221,
+   "reduction_vs_B3": -3.378260869565217,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "CompletionItem"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "ShellComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "ShellComplete.get_completions"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "PowerShellComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "ParamType.get_metavar"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "ParamType.shell_complete"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "Choice._normalized_mapping"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "Choice.normalize_choice"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "Choice.get_metavar"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "Choice.convert"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "Choice.shell_complete"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "feature"
+  },
+  {
+   "B1": 5973,
+   "B2": 88734,
+   "B3": 723,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 3,
+   "full_total": 3,
+   "id": "click-06",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2510.4,
+   "pack_tokens": 2254,
+   "query": "shell completion option value incomplete",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.6226351916959652,
+   "reduction_vs_B2": 0.9745982374287195,
+   "reduction_vs_B3": -2.1175656984785616,
+   "repo": "click",
+   "sections": [
+    [
+     "OUTLINE",
+     "src/click/core.py",
+     "ParameterSource"
+    ],
+    [
+     "FULL",
+     "src/click/core.py",
+     "Argument"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "ShellComplete.get_completions"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "_is_incomplete_argument"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "_is_incomplete_option"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "_resolve_incomplete"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "bug"
+  },
+  {
+   "B1": 5973,
+   "B2": 56110,
+   "B3": 723,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.6666666666666666,
+   "full_hit": 2,
+   "full_total": 3,
+   "id": "click-06",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2518.4,
+   "pack_tokens": 1539,
+   "query": "_resolve_incomplete _is_incomplete_option ShellComplete get_completions shell_complete CompletionItem",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.6666666666666666,
+   "reduction_vs_B1": 0.742340532395781,
+   "reduction_vs_B2": 0.9725717340937444,
+   "reduction_vs_B3": -1.1286307053941909,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "ShellComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "ShellComplete.get_completions"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "BashComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "ZshComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "FishComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "PowerShellComplete.get_completion_args"
+    ],
+    [
+     "FULL",
+     "src/click/shell_completion.py",
+     "_resolve_incomplete"
+    ],
+    [
+     "FULL",
+     "src/click/types.py",
+     "ParamType.shell_complete"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "bug"
+  },
+  {
+   "B1": 4091,
+   "B2": 82379,
+   "B3": 111,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "click-07",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2426.1,
+   "pack_tokens": 1324,
+   "query": "parser split option prefix normalize",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.6763627474945002,
+   "reduction_vs_B2": 0.9839279428009565,
+   "reduction_vs_B3": -10.927927927927929,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option._check_name_is_normalized"
+    ],
+    [
+     "FULL",
+     "src/click/core.py",
+     "Option.add_to_parser"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_split_opt"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_normalize_opt"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_OptionParser.__init__"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_OptionParser.add_option"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_OptionParser.add_argument"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "lookup"
+  },
+  {
+   "B1": 4091,
+   "B2": 50999,
+   "B3": 111,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "click-07",
+   "index_files": 91,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2197.6,
+   "pack_tokens": 1316,
+   "query": "_split_opt _normalize_opt _OptionParser _match_long_opt token_normalize_func",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.6783182595942312,
+   "reduction_vs_B2": 0.9741955724622051,
+   "reduction_vs_B3": -10.855855855855856,
+   "repo": "click",
+   "sections": [
+    [
+     "FULL",
+     "src/click/exceptions.py",
+     "NoSuchOption"
+    ],
+    [
+     "FULL",
+     "src/click/exceptions.py",
+     "BadOptionUsage"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_split_opt"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_normalize_opt"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_OptionParser._match_long_opt"
+    ],
+    [
+     "FULL",
+     "src/click/parser.py",
+     "_OptionParser._match_short_opt"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "lookup"
+  },
+  {
+   "B1": 18211,
+   "B2": 41046,
+   "B3": 599,
+   "any_hit": 0,
+   "any_total": 3,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.0,
+   "full_hit": 0,
+   "full_total": 2,
+   "id": "jinja-02",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 2200.9,
+   "pack_tokens": 2597,
+   "query": "template cache auto reload",
+   "recall_any": 0.0,
+   "recall_full": 0.0,
+   "reduction_vs_B1": 0.8573938828180769,
+   "reduction_vs_B2": 0.9367295229742241,
+   "reduction_vs_B3": -3.335559265442404,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/async_utils.py",
+     "auto_await"
+    ],
+    [
+     "FULL",
+     "src/jinja2/async_utils.py",
+     "auto_aiter"
+    ],
+    [
+     "FULL",
+     "src/jinja2/async_utils.py",
+     "auto_to_list"
+    ],
+    [
+     "FULL",
+     "src/jinja2/bccache.py",
+     "BytecodeCache.get_cache_key"
+    ],
+    [
+     "FULL",
+     "src/jinja2/bccache.py",
+     "BytecodeCache.get_bucket"
+    ],
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Environment.__init__"
+    ],
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Environment.overlay"
+    ],
+    [
+     "FULL",
+     "src/jinja2/utils.py",
+     "select_autoescape"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "explore"
+  },
+  {
+   "B1": 18211,
+   "B2": 38428,
+   "B3": 599,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "jinja-02",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 320.9,
+   "pack_tokens": 2312,
+   "query": "Environment _load_template cache auto_reload is_up_to_date uptodate BaseLoader load",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.8730437647575642,
+   "reduction_vs_B2": 0.9398355365879046,
+   "reduction_vs_B3": -2.8597662771285477,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Template.is_up_to_date"
+    ],
+    [
+     "FULL",
+     "src/jinja2/exceptions.py",
+     "TemplateNotFound"
+    ],
+    [
+     "FULL",
+     "src/jinja2/loaders.py",
+     "BaseLoader"
+    ],
+    [
+     "FULL",
+     "src/jinja2/loaders.py",
+     "BaseLoader.get_source"
+    ],
+    [
+     "FULL",
+     "src/jinja2/loaders.py",
+     "BaseLoader.list_templates"
+    ],
+    [
+     "FULL",
+     "src/jinja2/loaders.py",
+     "BaseLoader.load"
+    ],
+    [
+     "FULL",
+     "src/jinja2/utils.py",
+     "internalcode"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "explore"
+  },
+  {
+   "B1": 13094,
+   "B2": 58457,
+   "B3": 501,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "jinja-04",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 360.2,
+   "pack_tokens": 3160,
+   "query": "filter call name arguments environment",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.7586680922559951,
+   "reduction_vs_B2": 0.9459431719041347,
+   "reduction_vs_B3": -5.307385229540918,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Environment._filter_test_common"
+    ],
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Environment.call_filter"
+    ],
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Environment.call_test"
+    ],
+    [
+     "FULL",
+     "src/jinja2/nodes.py",
+     "EvalContext"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Context"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.call_binop"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.call_unop"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.call"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "feature"
+  },
+  {
+   "B1": 13094,
+   "B2": 57953,
+   "B3": 501,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 3500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 5500,
+   "escalation_fixes": true,
+   "escalation_recall_full": 1.0,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "jinja-04",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 380.9,
+   "pack_tokens": 3167,
+   "query": "Environment call_filter _filter_test_common filters pass_context pass_environment",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.758133496257828,
+   "reduction_vs_B2": 0.9453522682173485,
+   "reduction_vs_B3": -5.3213572854291415,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/compiler.py",
+     "CodeGenerator._filter_test_common"
+    ],
+    [
+     "FULL",
+     "src/jinja2/environment.py",
+     "Environment._filter_test_common"
+    ],
+    [
+     "FULL",
+     "src/jinja2/nodes.py",
+     "EvalContext"
+    ],
+    [
+     "FULL",
+     "src/jinja2/nodes.py",
+     "_FilterTestCommon"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Context"
+    ],
+    [
+     "FULL",
+     "src/jinja2/utils.py",
+     "_PassArg"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "feature"
+  },
+  {
+   "B1": 3302,
+   "B2": 39589,
+   "B3": 581,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.6666666666666666,
+   "full_hit": 2,
+   "full_total": 3,
+   "id": "jinja-05",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 374.3,
+   "pack_tokens": 1958,
+   "query": "sandbox unsafe attribute access",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.6666666666666666,
+   "reduction_vs_B1": 0.40702604482132043,
+   "reduction_vs_B2": 0.9505418171714365,
+   "reduction_vs_B3": -2.370051635111876,
+   "repo": "jinja",
+   "sections": [
+    [
+     "MENTION",
+     "src/jinja2/environment.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/jinja2/exceptions.py",
+     "SecurityError"
+    ],
+    [
+     "MENTION",
+     "src/jinja2/runtime.py",
+     ""
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Undefined"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "unsafe"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "is_internal_attribute"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.is_safe_attribute"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.unsafe_undefined"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "ImmutableSandboxedEnvironment.is_safe_attribute"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "bug"
+  },
+  {
+   "B1": 3302,
+   "B2": 30529,
+   "B3": 581,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 3,
+   "full_total": 3,
+   "id": "jinja-05",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 342.3,
+   "pack_tokens": 2202,
+   "query": "SandboxedEnvironment getattr is_safe_attribute is_internal_attribute unsafe_undefined",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.3331314354936402,
+   "reduction_vs_B2": 0.927871859543385,
+   "reduction_vs_B3": -2.7900172117039586,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/exceptions.py",
+     "SecurityError"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Undefined"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "is_internal_attribute"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.is_safe_attribute"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.is_safe_callable"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.getattr"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "SandboxedEnvironment.unsafe_undefined"
+    ],
+    [
+     "FULL",
+     "src/jinja2/sandbox.py",
+     "ImmutableSandboxedEnvironment.is_safe_attribute"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "bug"
+  },
+  {
+   "B1": 7780,
+   "B2": 54292,
+   "B3": 223,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 2000,
+   "escalation_fixes": true,
+   "escalation_recall_full": 1.0,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "jinja-07",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 340.7,
+   "pack_tokens": 708,
+   "query": "undefined variable missing error",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.9089974293059127,
+   "reduction_vs_B2": 0.9869594047005084,
+   "reduction_vs_B3": -2.1748878923766815,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/exceptions.py",
+     "UndefinedError"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Context.resolve_or_missing"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Undefined._fail_with_undefined_error"
+    ],
+    [
+     "FULL",
+     "src/jinja2/utils.py",
+     "_MissingType"
+    ],
+    [
+     "FULL",
+     "src/jinja2/utils.py",
+     "internalcode"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "lookup"
+  },
+  {
+   "B1": 7780,
+   "B2": 39405,
+   "B3": 223,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "jinja-07",
+   "index_files": 60,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 412.3,
+   "pack_tokens": 992,
+   "query": "Undefined StrictUndefined _fail_with_undefined_error _undefined_message",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.8724935732647815,
+   "reduction_vs_B2": 0.9748255297551072,
+   "reduction_vs_B3": -3.448430493273543,
+   "repo": "jinja",
+   "sections": [
+    [
+     "FULL",
+     "src/jinja2/exceptions.py",
+     "TemplateError.message"
+    ],
+    [
+     "FULL",
+     "src/jinja2/parser.py",
+     "Parser.fail_unknown_tag"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Undefined._undefined_message"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "Undefined._fail_with_undefined_error"
+    ],
+    [
+     "FULL",
+     "src/jinja2/runtime.py",
+     "StrictUndefined"
+    ],
+    [
+     "FULL",
+     "src/jinja2/utils.py",
+     "internalcode"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "lookup"
+  },
+  {
+   "B1": 4688,
+   "B2": 24986,
+   "B3": 360,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 3000,
+   "budget_limited": true,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.6666666666666666,
+   "full_hit": 2,
+   "full_total": 3,
+   "id": "sqlparse-02",
+   "index_files": 41,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 838.4,
+   "pack_tokens": 2714,
+   "query": "parse statement grouping stack",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.6666666666666666,
+   "reduction_vs_B1": 0.4210750853242321,
+   "reduction_vs_B2": 0.8913791723365084,
+   "reduction_vs_B3": -6.538888888888889,
+   "repo": "sqlparse",
+   "sections": [
+    [
+     "FULL",
+     "sqlparse/engine/filter_stack.py",
+     "FilterStack"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/filter_stack.py",
+     "FilterStack.enable_grouping"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/grouping.py",
+     "group"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/statement_splitter.py",
+     "StatementSplitter"
+    ],
+    [
+     "FULL",
+     "sqlparse/exceptions.py",
+     "SQLParseError"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/others.py",
+     "StripTrailingSemicolonFilter"
+    ],
+    [
+     "FULL",
+     "sqlparse/formatter.py",
+     "build_filter_stack"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "explore"
+  },
+  {
+   "B1": 4688,
+   "B2": 26970,
+   "B3": 360,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 3000,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.6666666666666666,
+   "full_hit": 2,
+   "full_total": 3,
+   "id": "sqlparse-02",
+   "index_files": 41,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 178.1,
+   "pack_tokens": 2142,
+   "query": "FilterStack run enable_grouping grouping group parse StatementSplitter",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.6666666666666666,
+   "reduction_vs_B1": 0.5430887372013652,
+   "reduction_vs_B2": 0.9205784204671857,
+   "reduction_vs_B3": -4.95,
+   "repo": "sqlparse",
+   "sections": [
+    [
+     "FULL",
+     "sqlparse/engine/filter_stack.py",
+     "FilterStack.enable_grouping"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/filter_stack.py",
+     "FilterStack.run"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/grouping.py",
+     "group"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/statement_splitter.py",
+     "StatementSplitter"
+    ],
+    [
+     "FULL",
+     "sqlparse/exceptions.py",
+     "SQLParseError"
+    ],
+    [
+     "FULL",
+     "sqlparse/lexer.py",
+     "tokenize"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "explore"
+  },
+  {
+   "B1": 2086,
+   "B2": 23367,
+   "B3": 1685,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 5500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.0,
+   "full_hit": 0,
+   "full_total": 2,
+   "id": "sqlparse-04",
+   "index_files": 41,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 161.8,
+   "pack_tokens": 1961,
+   "query": "format option keyword case filter",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.0,
+   "reduction_vs_B1": 0.05992329817833175,
+   "reduction_vs_B2": 0.9160782299824539,
+   "reduction_vs_B3": -0.16379821958456975,
+   "repo": "sqlparse",
+   "sections": [
+    [
+     "FULL",
+     "sqlparse/filters/aligned_indent.py",
+     "AlignedIndentFilter.nl"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/aligned_indent.py",
+     "AlignedIndentFilter._process_case"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._get_offset"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter.nl"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._process_case"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._process_default"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/tokens.py",
+     "_CaseFilter"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/tokens.py",
+     "KeywordCaseFilter"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/tokens.py",
+     "IdentifierCaseFilter"
+    ],
+    [
+     "FULL",
+     "sqlparse/sql.py",
+     "Token"
+    ],
+    [
+     "FULL",
+     "sqlparse/utils.py",
+     "offset"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "feature"
+  },
+  {
+   "B1": 2086,
+   "B2": 15205,
+   "B3": 1685,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 3500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "sqlparse-04",
+   "index_files": 41,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 146.6,
+   "pack_tokens": 1913,
+   "query": "validate_options build_filter_stack KeywordCaseFilter keyword_case format",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.08293384467881115,
+   "reduction_vs_B2": 0.8741861229858598,
+   "reduction_vs_B3": -0.1353115727002967,
+   "repo": "sqlparse",
+   "sections": [
+    [
+     "FULL",
+     "sqlparse/exceptions.py",
+     "SQLParseError"
+    ],
+    [
+     "FULL",
+     "sqlparse/formatter.py",
+     "validate_options"
+    ],
+    [
+     "FULL",
+     "sqlparse/formatter.py",
+     "build_filter_stack"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "feature"
+  },
+  {
+   "B1": 2423,
+   "B2": 24501,
+   "B3": 662,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "sqlparse-06",
+   "index_files": 41,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 167.5,
+   "pack_tokens": 1490,
+   "query": "reindent identifier list indentation comma",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.3850598431696244,
+   "reduction_vs_B2": 0.9391861556671156,
+   "reduction_vs_B3": -1.2507552870090635,
+   "repo": "sqlparse",
+   "sections": [
+    [
+     "FULL",
+     "benchmarks/bench_reindent_offset.py",
+     "in_tuple_list"
+    ],
+    [
+     "FULL",
+     "benchmarks/bench_reindent_offset.py",
+     "values_list"
+    ],
+    [
+     "FULL",
+     "sqlparse/engine/grouping.py",
+     "group_identifier_list"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter.__init__"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._process_identifierlist"
+    ],
+    [
+     "FULL",
+     "sqlparse/sql.py",
+     "IdentifierList"
+    ],
+    [
+     "FULL",
+     "sqlparse/sql.py",
+     "Command"
+    ],
+    [
+     "FULL",
+     "sqlparse/utils.py",
+     "imt"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "bug"
+  },
+  {
+   "B1": 2423,
+   "B2": 6097,
+   "B3": 662,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "sqlparse-06",
+   "index_files": 41,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 155.8,
+   "pack_tokens": 1540,
+   "query": "ReindentFilter _process_identifierlist _split_kwds nl _get_offset",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.36442426743706147,
+   "reduction_vs_B2": 0.7474167623421355,
+   "reduction_vs_B3": -1.3262839879154078,
+   "repo": "sqlparse",
+   "sections": [
+    [
+     "FULL",
+     "sqlparse/filters/aligned_indent.py",
+     "AlignedIndentFilter.nl"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/aligned_indent.py",
+     "AlignedIndentFilter._process_identifierlist"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/aligned_indent.py",
+     "AlignedIndentFilter._split_kwds"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._get_offset"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter.nl"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._split_kwds"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._process_identifierlist"
+    ],
+    [
+     "FULL",
+     "sqlparse/filters/reindent.py",
+     "ReindentFilter._process_default"
+    ],
+    [
+     "FULL",
+     "sqlparse/utils.py",
+     "offset"
+    ],
+    [
+     "FULL",
+     "sqlparse/utils.py",
+     "indent"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "bug"
+  },
+  {
+   "B1": 6288,
+   "B2": 20587,
+   "B3": 1530,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": false,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "tinydb-02",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 302.8,
+   "pack_tokens": 1879,
+   "query": "upsert update document insert condition",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.701176844783715,
+   "reduction_vs_B2": 0.9087288094428523,
+   "reduction_vs_B3": -0.22810457516339877,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "QueryLike"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.insert"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.update"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.upsert"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "bug"
+  },
+  {
+   "B1": 6288,
+   "B2": 19535,
+   "B3": 1530,
+   "any_hit": 3,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": true,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "tinydb-02",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 90.9,
+   "pack_tokens": 2199,
+   "query": "Table upsert update insert doc_id cond Document",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.6502862595419847,
+   "reduction_vs_B2": 0.8874328128999233,
+   "reduction_vs_B3": -0.4372549019607843,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "QueryLike"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.insert"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.update"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.upsert"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table._get_next_id"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "bug"
+  },
+  {
+   "B1": 1193,
+   "B2": 11462,
+   "B3": 332,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 3500,
+   "budget_limited": false,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_budget": 5500,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "tinydb-04",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 65.4,
+   "pack_tokens": 964,
+   "query": "storage backend read write close",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.19195305951383068,
+   "reduction_vs_B2": 0.9158960041877509,
+   "reduction_vs_B3": -1.9036144578313254,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "Storage"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "Storage.read"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "Storage.write"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "Storage.close"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "JSONStorage.close"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "JSONStorage.read"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "JSONStorage.write"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "MemoryStorage.read"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "MemoryStorage.write"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "feature"
+  },
+  {
+   "B1": 1193,
+   "B2": 11462,
+   "B3": 332,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 3500,
+   "budget_limited": false,
+   "confidence": "MEDIUM",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "tinydb-04",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 73.6,
+   "pack_tokens": 864,
+   "query": "Storage abstract read write close MemoryStorage JSONStorage",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.2757753562447611,
+   "reduction_vs_B2": 0.9246204850811377,
+   "reduction_vs_B3": -1.6024096385542168,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "Storage"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "JSONStorage.close"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "JSONStorage.read"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "JSONStorage.write"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "MemoryStorage"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "MemoryStorage.read"
+    ],
+    [
+     "FULL",
+     "tinydb/storages.py",
+     "MemoryStorage.write"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "feature"
+  },
+  {
+   "B1": 3823,
+   "B2": 22199,
+   "B3": 313,
+   "any_hit": 1,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 2000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "tinydb-05",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 79.2,
+   "pack_tokens": 1026,
+   "query": "query path test function generate",
+   "recall_any": 0.5,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.731624378760136,
+   "reduction_vs_B2": 0.953781701878463,
+   "reduction_vs_B3": -2.2779552715654954,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "QueryInstance"
+    ],
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "Query._generate_test"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "lookup"
+  },
+  {
+   "B1": 3823,
+   "B2": 21836,
+   "B3": 313,
+   "any_hit": 2,
+   "any_total": 2,
+   "budget": 1500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_fixes": null,
+   "full_hit": 2,
+   "full_total": 2,
+   "id": "tinydb-05",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 76.0,
+   "pack_tokens": 1168,
+   "query": "Query _generate_test path runner QueryInstance __getattr__",
+   "recall_any": 1.0,
+   "recall_full": 1.0,
+   "reduction_vs_B1": 0.6944807742610515,
+   "reduction_vs_B2": 0.9465103498809305,
+   "reduction_vs_B3": -2.731629392971246,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "QueryInstance"
+    ],
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "Query.__getattr__"
+    ],
+    [
+     "FULL",
+     "tinydb/queries.py",
+     "Query._generate_test"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "lookup"
+  },
+  {
+   "B1": 6288,
+   "B2": 18060,
+   "B3": 967,
+   "any_hit": 1,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "tinydb-07",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 89.3,
+   "pack_tokens": 805,
+   "query": "document id next insert collide",
+   "recall_any": 0.3333333333333333,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.8719783715012723,
+   "reduction_vs_B2": 0.9554263565891473,
+   "reduction_vs_B3": 0.16752843846949328,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "MENTION",
+     "tinydb/queries.py",
+     ""
+    ],
+    [
+     "OUTLINE",
+     "tinydb/storages.py",
+     ""
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table._get_next_id"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table._read_table"
+    ],
+    [
+     "MENTION",
+     "tinydb/utils.py",
+     ""
+    ]
+   ],
+   "split": "holdout2",
+   "style": "naive",
+   "task": "bug"
+  },
+  {
+   "B1": 6288,
+   "B2": 18060,
+   "B3": 967,
+   "any_hit": 2,
+   "any_total": 3,
+   "budget": 2500,
+   "budget_limited": false,
+   "confidence": "HIGH",
+   "deterministic": true,
+   "escalation_budget": 3000,
+   "escalation_fixes": false,
+   "escalation_recall_full": 0.5,
+   "full_hit": 1,
+   "full_total": 2,
+   "id": "tinydb-07",
+   "index_files": 21,
+   "label_missing": [],
+   "low_confidence": false,
+   "pack_ms": 100.2,
+   "pack_tokens": 1356,
+   "query": "Table _get_next_id insert insert_multiple Document doc_id _next_id",
+   "recall_any": 0.6666666666666666,
+   "recall_full": 0.5,
+   "reduction_vs_B1": 0.7843511450381679,
+   "reduction_vs_B2": 0.9249169435215947,
+   "reduction_vs_B3": -0.40227507755946235,
+   "repo": "tinydb",
+   "sections": [
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table.insert_multiple"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table._get_next_id"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table._read_table"
+    ],
+    [
+     "FULL",
+     "tinydb/table.py",
+     "Table._update_table"
+    ]
+   ],
+   "split": "holdout2",
+   "style": "agent",
+   "task": "bug"
+  }
+ ]
+}

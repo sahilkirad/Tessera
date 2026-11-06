@@ -1,6 +1,6 @@
 ---
 name: code-context-pruner
-description: Use when you need to fix a bug, add a feature, write a test, or explain code in a Python repository. Finds relevant functions and classes by keyword, shows file outlines (signatures only), extracts exact functions or line ranges, traces imports, and packs a token-budgeted context bundle in one call. Use it BEFORE reading whole files, running broad greps, or listing directories in a Python repo. Python repositories only; offline, standard library only, no installs.
+description: Finds the relevant functions and classes in a Python repository by keyword and returns them as one token-budgeted bundle of exact code, file outlines and a list of items that did not fit, so you read less than whole files. Use it when you are asked to fix a bug, add a feature, write a test, find where something is defined, trace a flow, or explain how part of a Python codebase works, and BEFORE you read whole files, run broad greps or list directories. Python repositories only; offline, standard library only, no installs.
 ---
 
 # code-context-pruner
@@ -15,13 +15,13 @@ The scripts sit next to this SKILL.md; `<skill_dir>` is the folder containing it
 python3 <skill_dir>/scripts/pack.py "kw1 kw2 kw3 kw4" --root <repo> --task bug
 ```
 
-Pick 3-6 identifier-like keywords. Add likely synonyms yourself (discount, coupon, promo; auth, login, token). You supply the meaning; the tool filters the repo by name, path, parameter and docstring words.
+Pick 3-6 identifier-like keywords. If the task names a function or class, include its name in the query. Add likely synonyms yourself (discount, coupon, promo; auth, login, token). You supply the meaning; the tool filters the repo by name, path, parameter and docstring words.
 
 How to read the result:
 - `=== FULL path::Name Lstart-end` is the exact code.
 - `=== OUTLINE` is signatures and line spans only; `=== MENTION` is a one-line pointer to a file.
 - `=== TRUNCATED` is the top match cut to fit the budget; the last line says which `slice.py` range gives the rest.
-- `OMITTED` lists what was left out. Treat it as a to-do: fetch what the task needs with `slice.py`.
+- `OMITTED` lists items that were found but did not fit. Treat it as a to-do: fetch what the task needs with `slice.py`. Code the search ranked too low is not listed anywhere, so an empty or short `OMITTED` does not prove the bundle is complete.
 - `WARNINGS` lists files it could not parse or skipped (ignored, huge, binary).
 - `TOKENS` is an estimate, not an exact count.
 
@@ -33,6 +33,15 @@ Pick `--task` by what you are doing (it sets the token budget):
 - `feature`: add a feature or refactor (largest)
 
 Start with the smallest that fits. If the output says `BUDGET-LIMITED`, decide whether the omitted items matter; if they do, fetch them with `slice.py` or rerun with the suggested `--task` or `--budget`. Do not raise the budget "just in case". The hard cap is 8000 tokens.
+
+## When something you need is missing
+
+If you know the function's name (the task names it, or an OUTLINE, MENTION or OMITTED line showed it), run `python3 <skill_dir>/scripts/pack.py "Class.method" --root <repo>` with ONLY that qualified name. In the benchmark this found all 42 functions that a first pack had missed. Keep the name in your first query too, and use the name-only query as the retry.
+
+Other paths that worked:
+- `find.py "method_name" --root <repo>`: the symbol was in the top 8 results in 41 of 42 cases, and in the top 20 in all 42.
+- `slice.py path/file.py:Class.method --root <repo>`: worked in 38 of 38 cases where the file path had appeared in the pack output.
+- `map.py <folder>` listed the name in only 20 of 42 cases; do not rely on it for this.
 
 ## If you need more
 
@@ -53,6 +62,20 @@ Example: "discount coupon" is LOW, the vocabulary shows "adjustment, invoice", s
 
 - Do not open whole files until pack, outline or slice proved insufficient.
 - Names beat guesses: if `slice.py` says AMBIGUOUS or NOT FOUND, use the qualified name it suggests.
+- If `OMITTED` names only a file, or you do not know a method's qualified name, run `slice.py path/file.py` for the outline first, then `slice.py path/file.py:Class.method`.
 - Callers are not traced at symbol level. For "who calls this?" use `deps.py --reverse` (files), then search inside those files.
-- Dynamic imports are not traced. Not for non-Python repos (the tool says so). For tiny repos (under about 10 files) just read the files.
-- Token numbers are estimates. More detail and worked examples: `references/workflow.md`.
+- For tiny repos (under about 10 files) just read the files.
+- More detail and worked examples: `references/workflow.md`.
+
+## Known limitations
+
+Measured on 15 tasks in 4 Python repos (numbers in the README):
+- Python only. On a repository without Python files the tool says it supports Python only.
+- About 8 of 10 needed functions arrived as full code with identifier-style keywords, about 6 of 10 with plain words. If you can name a missing function, see "When something you need is missing"; otherwise retry with different keywords or use `find.py`.
+- A large function can be omitted or shown cut short when it does not fit the budget; `OMITTED` and `TRUNCATED` say so.
+- The confidence label (HIGH, MEDIUM, LOW) measures how well the words matched, not whether the bundle is complete.
+- Dynamic imports and runtime-generated code are not traced. Callers are reported per file, not per function.
+- Token numbers are estimates; each model counts differently.
+- Cold start builds the index on every call: on Django (2,937 Python files) one laptop took a median of 5.7 s for `map.py`, 7.2 s for `pack.py` and 18.5 s for `find.py`; on click (91 files) about 0.5 s.
+- Agents may not pick this skill by themselves. If yours does not, say "use the code-context-pruner skill".
+- Your agent may ask permission before each shell command the scripts run. The scripts only read files.

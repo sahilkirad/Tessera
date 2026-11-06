@@ -1,10 +1,23 @@
 analyze-venv/
 bench/repos/
+dist/
+work/
+/handoff/
 __pycache__/
 *.pyc
 .env*
 *.pem
 *.key
-*.md
 /docs
 opencode*
+
+# benchmark results: only the headline summary and its raw data go to the repo
+bench/results/*
+!bench/results/holdout2_summary.md
+!bench/results/holdout2_results.json
+
+# private working files (listing text, submission notes)
+/LISTING.txt
+/LISTING_FORM.md
+/SUBMISSION_CHECKLIST.md
+CLAUDE*
