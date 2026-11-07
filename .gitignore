@@ -1,6 +1,7 @@
 analyze-venv/
 bench/repos/
 dist/
+release/
 work/
 /handoff/
 __pycache__/

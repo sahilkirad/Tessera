@@ -1,4 +1,4 @@
-# Workflow notes for code-context-pruner
+# Workflow notes for Tessera
 
 Load this only when SKILL.md is not enough.
 

@@ -1,9 +1,9 @@
 ---
-name: code-context-pruner
+name: tessera
 description: Finds the relevant functions and classes in a Python repository by keyword and returns them as one token-budgeted bundle of exact code, file outlines and a list of items that did not fit, so you read less than whole files. Use it when you are asked to fix a bug, add a feature, write a test, find where something is defined, trace a flow, or explain how part of a Python codebase works, and BEFORE you read whole files, run broad greps or list directories. Python repositories only; offline, standard library only, no installs.
 ---
 
-# code-context-pruner
+# Tessera
 
 Read code in layers. Start cheap, go deeper only when needed. Never read a whole large file first.
 
@@ -76,6 +76,6 @@ Measured on 15 tasks in 4 Python repos (numbers in the README):
 - The confidence label (HIGH, MEDIUM, LOW) measures how well the words matched, not whether the bundle is complete.
 - Dynamic imports and runtime-generated code are not traced. Callers are reported per file, not per function.
 - Token numbers are estimates; each model counts differently.
-- Cold start builds the index on every call: on Django (2,937 Python files) one laptop took a median of 5.7 s for `map.py`, 7.2 s for `pack.py` and 18.5 s for `find.py`; on click (91 files) about 0.5 s.
-- Agents may not pick this skill by themselves. If yours does not, say "use the code-context-pruner skill".
+- Cold start builds the index on every call: on Django (2,937 Python files) one laptop took about 5 to 7 s per call when idle (median of 3 runs: `map.py` 5.4 s, `pack.py` 6.3 s, `find.py` 6.2 s); the first call after a cold start took 20 s or more, and a run under load took 15 to 20 s per call. On click (91 files): about 0.5 s.
+- Agents may not pick this skill by themselves. If yours does not, say "use the Tessera skill".
 - Your agent may ask permission before each shell command the scripts run. The scripts only read files.

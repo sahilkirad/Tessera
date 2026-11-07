@@ -1,6 +1,6 @@
-"""Dev-only: build and validate the Agensi upload zips under dist/.
+"""Dev-only: build and validate the Agensi upload zip under release/.
 
-Writes ONE zip from `code-context-pruner/`: dist/<name>.zip with SKILL.md at the zip root.
+Writes ONE zip from `tessera/`: release/<name>.zip with SKILL.md at the zip root.
 Run: python tools/build_zip.py
 """
 from __future__ import annotations
@@ -14,11 +14,11 @@ from pathlib import Path
 from typing import List, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
-SKILL = ROOT / "code-context-pruner"
-DIST = ROOT / "dist"
+SKILL = ROOT / "tessera"
+DIST = ROOT / "release"
 MAX_BYTES = 50 * 1024 * 1024
 FIXED_TIME = (2026, 1, 1, 0, 0, 0)
-FORBIDDEN_PARTS = {"tests", "bench", "docs", "tools", "work", "handoff", "dist", "__pycache__", ".git"}
+FORBIDDEN_PARTS = {"tests", "bench", "docs", "tools", "work", "handoff", "dist", "release", "__pycache__", ".git"}
 FORBIDDEN_NAMES = (".env", ".pem", ".key", ".pyc", ".pyo")
 REQUIRED = ("SKILL.md", "LICENSE", "README.md", "BENCHMARK.md")
 EXPECTED_FILES = 13

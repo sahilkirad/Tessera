@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Dict, Union
 
 ROOT = Path(__file__).resolve().parent.parent
-SCRIPTS = ROOT / "code-context-pruner" / "scripts"
+SCRIPTS = ROOT / "tessera" / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 

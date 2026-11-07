@@ -1,8 +1,8 @@
-# code-context-pruner
+# Tessera
 
 A free, offline skill that teaches AI coding agents to explore a Python repository cheaply: find the right code, view outlines instead of whole files, pull exact functions, trace imports, and pack a token-budgeted context in one call.
 
-You do not type commands. Give your agent a task ("why is the discount missing in the receipt?"); the agent matches the skill, loads `SKILL.md`, and runs the scripts. Agents do not always pick a skill by themselves. If yours does not, say "use the code-context-pruner skill".
+You do not type commands. Give your agent a task ("why is the discount missing in the receipt?"); the agent matches the skill, loads `SKILL.md`, and runs the scripts. Agents do not always pick a skill by themselves. If yours does not, say "use the Tessera skill".
 
 ## Requirements
 - Python 3.10 or newer (tested on 3.10 and 3.13). Standard library only: no pip installs, no API keys, no network.
@@ -10,11 +10,11 @@ You do not type commands. Give your agent a task ("why is the discount missing i
 - The scripts are called as `python3`, `python` or `py` (Windows), whichever your machine has.
 
 ## Install
-Put the folder named `code-context-pruner` (with `SKILL.md` inside it) where your agent loads skills. The folder name must match the `name:` in `SKILL.md`.
+Put the folder named `tessera` (with `SKILL.md` inside it) where your agent loads skills. The folder name must match the `name:` in `SKILL.md`.
 
 | Agent | Skills folder | Status |
 |---|---|---|
-| Claude Code | `~/.claude/skills/code-context-pruner/` | per Agensi's install guides |
+| Claude Code | `~/.claude/skills/tessera/` | per Agensi's install guides |
 | Gemini CLI | `~/.gemini/skills/` or `.gemini/skills/` in a project | per Agensi's install guides |
 | Codex CLI | `~/.codex/skills/` or `.codex/skills/` in a project | per Agensi's install guides |
 | Cursor | not verified | check Cursor's own docs |
@@ -39,7 +39,7 @@ Your agent may ask permission before each shell command the scripts run; the scr
 
 - An ideal reader who already knows the exact lines needs fewer tokens than the bundle: it adds context and lists what did not fit.
 - If a function you need is missing and you can name it, run `pack.py` again with only its qualified name (for example `Group.invoke`). In the benchmark this found 42 of 42 missed functions. `find.py "<name>"` had it in the top 8 in 41 of 42 cases, and `slice.py path:Class.method` worked in 38 of 38 cases where the file path was shown.
-- Speed: every call builds the index from scratch. On Django (2,937 Python files) one laptop took a median of 5.7 s for `map.py`, 7.2 s for `pack.py` and 18.5 s for `find.py`; on click (91 files) about 0.5 s.
+- Speed: every call builds the index from scratch. On Django (2,937 Python files) one laptop took about 5 to 7 s per call when idle (median of 3 runs: `map` 5.4 s, `pack` 6.3 s, `find` 6.2 s); the first call after a cold start took 20 s or more, and a run under load took 15 to 20 s per call. On click (91 files): about 0.5 s.
 
 ## Limits
 - Token counts are estimates (calibrated against OpenAI's cl100k_base tokenizer; other models count differently).

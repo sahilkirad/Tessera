@@ -7,7 +7,7 @@ Offline, standard library only, Python 3.10+, read-only. Python repositories onl
 ## How it works
 
 ```
-python3 code-context-pruner/scripts/pack.py "retry session cookie" --root <repo> --task bug
+python3 tessera/scripts/pack.py "retry session cookie" --root <repo> --task bug
 ```
 
 The agent gets back:
@@ -16,11 +16,13 @@ The agent gets back:
 - outlines of related files
 - an `OMITTED` list of items that did not fit the token budget
 
+From PyPI (no copy needed): `uvx tessera-skill@1.0.0 pack "retry session cookie" --root <repo> --task bug`.
+
 Other commands: `map.py` (repo overview), `find.py` (symbol search), `slice.py` (outline, exact function or line range), `deps.py` (imports and importers).
 
 ## Install
 
-Copy the `code-context-pruner/` folder into your agent's skills folder:
+Copy the `tessera/` folder into your agent's skills folder:
 
 | Agent | Folder |
 |---|---|
@@ -28,11 +30,11 @@ Copy the `code-context-pruner/` folder into your agent's skills folder:
 | Gemini CLI | `~/.gemini/skills/` |
 | Codex CLI | `~/.codex/skills/` |
 
-Then ask your agent to use the code-context-pruner skill.
+Then ask your agent to use the Tessera skill.
 
 ## Results
 
-15 tasks on four Python repos (click, jinja, sqlparse, tinydb). Details: `code-context-pruner/BENCHMARK.md`.
+15 tasks on four Python repos (click, jinja, sqlparse, tinydb). Details: `tessera/BENCHMARK.md`.
 
 | | agent-style keywords | plain keywords |
 |---|---|---|
@@ -50,7 +52,7 @@ Then ask your agent to use the code-context-pruner skill.
 
 | Path | What |
 |---|---|
-| `code-context-pruner/` | the skill (this is what gets zipped) |
+| `tessera/` | the skill (this is what gets zipped) |
 | `tests/` | unit tests: `python -m unittest discover -s tests -q` |
 | `tools/` | benchmark and packaging tools (`measure.py`, `build_zip.py`) |
 | `bench/tasks/` | benchmark tasks |

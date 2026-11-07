@@ -26,7 +26,7 @@
 
 ## Speed
 
-Every call builds the index from scratch. On Django (2,937 Python files), one laptop: median 5.7 s for `map.py`, 7.2 s for `pack.py`, 18.5 s for `find.py`. On click (91 files): about 0.5 s.
+Every call builds the index from scratch. On Django (2,937 Python files), one laptop took about 5 to 7 s per call when idle (median of 3 runs: `map.py` 5.4 s, `pack.py` 6.3 s, `find.py` 6.2 s). The first call after a cold start took 20 s or more, and a run under load took 15 to 20 s per call. On click (91 files): about 0.5 s.
 
 ## Reproduce
 

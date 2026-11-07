@@ -14,7 +14,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SCRIPTS = ROOT / "code-context-pruner" / "scripts"
+SCRIPTS = ROOT / "tessera" / "scripts"
 RESULTS = ROOT / "bench" / "results"
 RUNS = 3
 

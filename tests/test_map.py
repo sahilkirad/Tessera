@@ -137,7 +137,7 @@ class MapTests(unittest.TestCase):
         with make_repo({"readme.txt": "hi"}) as tmp:
             code, out = run(map_cli, ["--root", root_of(tmp)])
         self.assertEqual(code, 0)
-        self.assertTrue(out.startswith("NO PYTHON FILES: code-context-pruner v1 supports Python only"))
+        self.assertTrue(out.startswith("NO PYTHON FILES: tessera v1 supports Python only"))
 
     def test_partial_on_expired_deadline(self):
         with make_repo(hub_repo(5)) as tmp:

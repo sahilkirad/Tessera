@@ -1,7 +1,7 @@
 """Dev-only: write or verify bench/results/frozen_manifest.json.
 
 The manifest has two parts:
-  code   SHA-256 of every file under code-context-pruner/scripts/, taken BEFORE the holdout2 run. These must
+  code   SHA-256 of every file under tessera/scripts/, taken BEFORE the holdout2 run. These must
          never change; `verify-code` fails if one does.
   text   SHA-256 of the text files (SKILL.md, README.md, BENCHMARK.md, references, LICENSE) at the time of the
          last release polish. They changed after holdout2 on purpose: the texts quote its numbers and the
@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKILL = ROOT / "code-context-pruner"
+SKILL = ROOT / "tessera"
 MANIFEST = ROOT / "bench" / "results" / "frozen_manifest.json"
 TEXT_NOTE = ("Text files changed after holdout2 (2026-11-04) on purpose: SKILL.md and README.md quote the holdout2 numbers, "
              "BENCHMARK.md was added with the recovery-path and cold-timing measurements, references/workflow.md got a "

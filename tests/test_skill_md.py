@@ -6,7 +6,7 @@ import unittest
 
 import helpers
 
-SKILL_DIR = helpers.ROOT / "code-context-pruner"
+SKILL_DIR = helpers.ROOT / "tessera"
 
 
 def read_skill():
@@ -21,7 +21,7 @@ class SkillMdTests(unittest.TestCase):
     def test_frontmatter_only_name_and_description(self):
         fields, _, _ = read_skill()
         self.assertEqual(sorted(fields), ["description", "name"])
-        self.assertEqual(fields["name"], "code-context-pruner")
+        self.assertEqual(fields["name"], "tessera")
         self.assertRegex(fields["name"], r"^[a-z0-9-]+$")
 
     def test_description_is_task_based_and_short(self):

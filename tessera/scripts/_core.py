@@ -25,7 +25,7 @@ DEFAULT_BUDGET = 2000
 HARD_CAP = 8000
 MIN_BUDGET = 200
 BUDGET_TOO_SMALL = "BUDGET TOO SMALL (minimum 200)"
-NO_PYTHON_FILES = "NO PYTHON FILES: code-context-pruner v1 supports Python only"
+NO_PYTHON_FILES = "NO PYTHON FILES: tessera v1 supports Python only"
 DEFAULT_MAX_SECONDS = 20.0
 
 DEFAULT_DIR_NAMES = frozenset({

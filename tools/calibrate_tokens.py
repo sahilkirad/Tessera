@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "code-context-pruner" / "scripts"))
+sys.path.insert(0, str(ROOT / "tessera" / "scripts"))
 
 from _core import _CAMEL_RE, _TOKEN_RE, estimate_tokens, find_repo_files, padded, read_text  # noqa: E402
 

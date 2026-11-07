@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "code-context-pruner" / "scripts"))
+sys.path.insert(0, str(ROOT / "tessera" / "scripts"))
 
 from _core import (  # noqa: E402
     IgnoreRules, estimate_tokens, find_repo_files, next_budget, read_text, resolve_budget,
